@@ -3,7 +3,7 @@ import {Dimensions, View} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import DotCarousel from '../../components/DotCarousel';
 import {INTRO_DATA} from './IntroData';
-import IntroItem from './IntroItem';
+import IntroItem from './components/IntroItem';
 
 const IntroScreen = () => {
   const [currentIndictorIndex, setIndicatorIndex] = React.useState(0);
@@ -15,7 +15,7 @@ const IntroScreen = () => {
         <Carousel
           loop={false}
           pagingEnabled={true}
-          width={width - 30}
+          width={width}
           height={height}
           // autoPlay={true}
           data={INTRO_DATA}
@@ -24,7 +24,9 @@ const IntroScreen = () => {
           onProgressChange={(_, absoluteProgress) => {
             setIndicatorIndex(Math.round(absoluteProgress));
           }}
-          renderItem={({item}) => <IntroItem item={item} />}
+          renderItem={({item}) => (
+            <IntroItem item={item} index={currentIndictorIndex} />
+          )}
           //   style={{borderWidth: 2, borderColor: 'green'}}
         />
         <DotCarousel

@@ -26,5 +26,6 @@ export const INTRO_DATA = [
     title: 'Payment Online',
     subTitle:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui ultricies sit massa.',
+    endBtn: true,
   },
 ];
