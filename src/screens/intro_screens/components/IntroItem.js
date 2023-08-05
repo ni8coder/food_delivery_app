@@ -2,7 +2,7 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const IntroItem = ({item, index}) => {
+const IntroItem = ({item, index, navigateHome}) => {
   const {image, title, subTitle, endBtn} = item;
   console.log('index', index);
   return (
@@ -14,7 +14,7 @@ const IntroItem = ({item, index}) => {
       </View>
       {endBtn === true && (
         <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.getStartedBtn}>
+          <TouchableOpacity style={styles.getStartedBtn} onPress={navigateHome}>
             <Text style={styles.btnText}>Get Started</Text>
           </TouchableOpacity>
         </View>

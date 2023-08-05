@@ -4,9 +4,11 @@ import Carousel from 'react-native-reanimated-carousel';
 import DotCarousel from '../../components/DotCarousel';
 import {INTRO_DATA} from './IntroData';
 import IntroItem from './components/IntroItem';
+import {AuthContext} from '../../context/AuthContext';
 
 const IntroScreen = () => {
   const [currentIndictorIndex, setIndicatorIndex] = React.useState(0);
+  const {navigateHome} = React.useContext(AuthContext);
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
   return (
@@ -25,7 +27,11 @@ const IntroScreen = () => {
             setIndicatorIndex(Math.round(absoluteProgress));
           }}
           renderItem={({item}) => (
-            <IntroItem item={item} index={currentIndictorIndex} />
+            <IntroItem
+              item={item}
+              index={currentIndictorIndex}
+              navigateHome={navigateHome}
+            />
           )}
           //   style={{borderWidth: 2, borderColor: 'green'}}
         />
