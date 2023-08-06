@@ -23,7 +23,7 @@ const TabNavigator = () => {
           } else if (route.name === 'MyList') {
             iconName = 'favorite';
             return <FIcon name={iconName} size={size} color={color} />;
-          } else if (route.name === 'Profile') {
+          } else if (route.name === 'ProfileNav') {
             iconName = 'account';
           }
           return <MCIcon name={iconName} size={size} color={color} />;
@@ -39,7 +39,11 @@ const TabNavigator = () => {
       />
       <Tab.Screen name="Order" component={OrderScreen} />
       <Tab.Screen name="MyList" component={MyListScreen} />
-      <Tab.Screen name="Profile" component={ProfileNavigator} />
+      <Tab.Screen
+        name="ProfileNav"
+        component={ProfileNavigator}
+        options={{title: 'Profile'}}
+      />
     </Tab.Navigator>
   );
 };
