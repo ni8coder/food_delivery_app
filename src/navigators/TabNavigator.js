@@ -6,6 +6,7 @@ import MyListScreen from '../screens/tab_screens/MyListScreen';
 import ProfileScreen from '../screens/tab_screens/ProfileScreen';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FIcon from 'react-native-vector-icons/Fontisto';
+import ProfileNavigator from './ProfileNavigator';
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -29,6 +30,7 @@ const TabNavigator = () => {
         },
         tabBarActiveTintColor: '#D35400',
         tabBarInactiveTintColor: 'rgba(0,0,0,0.5)',
+        headerShown: false,
       })}>
       <Tab.Screen
         name="Home"
@@ -37,7 +39,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen name="Order" component={OrderScreen} />
       <Tab.Screen name="MyList" component={MyListScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={ProfileNavigator} />
     </Tab.Navigator>
   );
 };
