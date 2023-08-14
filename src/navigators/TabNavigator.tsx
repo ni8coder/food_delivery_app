@@ -3,7 +3,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/tab_screens/HomeScreen';
 import OrderScreen from '../screens/tab_screens/OrderScreen';
 import MyListScreen from '../screens/tab_screens/MyListScreen';
-import ProfileScreen from '../screens/tab_screens/ProfileScreen';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FIcon from 'react-native-vector-icons/Fontisto';
 import ProfileNavigator from './ProfileNavigator';
@@ -14,8 +13,9 @@ const TabNavigator = () => {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          let iconName;
+        // eslint-disable-next-line react/no-unstable-nested-components
+        tabBarIcon: ({color, size}) => {
+          let iconName = 'home';
           if (route.name === 'Home') {
             iconName = 'home';
           } else if (route.name === 'Order') {

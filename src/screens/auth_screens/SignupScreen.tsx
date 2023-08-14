@@ -2,49 +2,61 @@ import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
 import React from 'react';
 import CustomSafeAreaView from '../../components/CustomSafeAreaView';
 import CustomButton from '../../components/CustomButton';
-import {AuthContext} from '../../context/AuthContext';
 import EncryptedStorage from 'react-native-encrypted-storage';
+import {useAuth} from '../../context/auth_context/useAuth';
+import {SignupScreenProps} from '../../navigators/AuthNavigator';
 
-const LoginScreen = ({navigation}) => {
+const SignupScreen = ({navigation}: SignupScreenProps) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const {signIn} = React.useContext(AuthContext);
+  const [password2, setPassword2] = React.useState('');
 
-  const handleSignIn = async () => {
+  const {signUp} = useAuth();
+
+  const handleSignup = async () => {
     if (!username.replace(/\s/g, '').length) {
       Alert.alert('Username is required');
-    } else if (password === '') {
-      Alert.alert('Password is required');
+    } else if (!password.replace(/\s/g, '').length || password !== password2) {
+      Alert.alert('Password does not match');
+      setPassword('');
+      setPassword2('');
     } else {
       try {
         await EncryptedStorage.setItem('token', username);
       } catch (error) {
         console.log(error);
       }
-      signIn({username, password});
+      signUp();
     }
   };
 
   return (
     <CustomSafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
-        <Text style={styles.titleStyle}>Sign In</Text>
+        <Text style={styles.titleStyle}>Sign Up</Text>
         <TextInput
+          placeholder="Enter Username"
           value={username}
           onChangeText={value => setUsername(value)}
-          placeholder="Enter Username"
           style={styles.textInput}
         />
         <TextInput
-          value={password}
-          onChangeText={value => setPassword(value)}
           placeholder="Password"
           secureTextEntry
           style={styles.textInput}
+          value={password}
+          onChangeText={value => setPassword(value)}
+        />
+        <TextInput
+          placeholder="Re-enter Password"
+          secureTextEntry
+          style={styles.textInput}
+          value={password2}
+          onChangeText={value => setPassword2(value)}
         />
         <CustomButton
-          title="Sign In"
-          onPress={handleSignIn}
+          title="Sign Up"
+          onPress={handleSignup}
           containerStyle={{width: '100%'}}
         />
       </View>
@@ -84,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignupScreen;

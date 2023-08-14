@@ -1,8 +1,13 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {View} from 'react-native';
+import React, {ReactNode} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-const CustomSafeAreaView = props => {
+type CustomSafeAreaViewProps = {
+  style: object;
+  children: ReactNode | undefined;
+};
+
+const CustomSafeAreaView = (props: CustomSafeAreaViewProps) => {
   const insets = useSafeAreaInsets();
 
   const insetStyle = {

@@ -1,11 +1,19 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import AuthScreen from '../screens/auth_screens/AuthScreen';
 import LoginScreen from '../screens/auth_screens/LoginScreen';
 import SignupScreen from '../screens/auth_screens/SignupScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  NativeStackScreenProps,
+  createNativeStackNavigator,
+} from '@react-navigation/native-stack';
 
-const AuthStack = createNativeStackNavigator();
+type AuthStackParamList = {
+  Auth: undefined;
+  Login: undefined;
+  Signup: undefined;
+};
+
+const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthNavigator = () => {
   return (
@@ -20,5 +28,20 @@ const AuthNavigator = () => {
     </AuthStack.Navigator>
   );
 };
+
+export type AuthScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  'Auth'
+>;
+
+export type LoginScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  'Login'
+>;
+
+export type SignupScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  'Signup'
+>;
 
 export default AuthNavigator;

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
 import React from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import CustomSafeAreaView from '../../components/CustomSafeAreaView';
@@ -12,6 +12,7 @@ import Group3 from '../../../assets/images/home/Group-3.png';
 import Group4 from '../../../assets/images/home/Group-4.png';
 import Food from '../../../assets/images/home/food-image.png';
 import Star from '../../../assets/images/home/star.png';
+import {SvgProps} from 'react-native-svg';
 
 const SNACKS = [
   {SVGImage: CoffeeCup, title: 'Drink'},
@@ -22,7 +23,11 @@ const SNACKS = [
   {SVGImage: CakePiece, title: 'Cake'},
 ];
 
-const SnackItem = props => {
+type SnackItemProps = {
+  SVGImage: React.FC<SvgProps>;
+  title: string;
+};
+const SnackItem = (props: SnackItemProps) => {
   const {SVGImage, title} = props;
   return (
     <View style={styles.itemView}>
