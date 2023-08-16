@@ -3,15 +3,16 @@ import React from 'react';
 import CustomSafeAreaView from '../../components/CustomSafeAreaView';
 import CustomButton from '../../components/CustomButton';
 import EncryptedStorage from 'react-native-encrypted-storage';
-import {useAuth} from '../../context/auth_context/useAuth';
 import {SignupScreenProps} from '../../navigators/AuthNavigator';
+import {useAppDispatch} from '../../app/hooks';
+import {signIn} from '../../feature/auth/authSlice';
 
 const SignupScreen = ({navigation}: SignupScreenProps) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [password2, setPassword2] = React.useState('');
 
-  const {signUp} = useAuth();
+  const dispatch = useAppDispatch();
 
   const handleSignup = async () => {
     if (!username.replace(/\s/g, '').length) {
@@ -26,7 +27,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
       } catch (error) {
         console.log(error);
       }
-      signUp();
+      dispatch(signIn('dummy-auth-token'));
     }
   };
 

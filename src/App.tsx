@@ -10,14 +10,21 @@ import RootNavigator from './navigators/RootNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
+import {Provider} from 'react-redux';
+import {store, persistor} from './app/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 function App() {
   return (
-    <GestureHandlerRootView style={styles.gestureHandlerRootView}>
-      <SafeAreaProvider>
-        <RootNavigator />
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <GestureHandlerRootView style={styles.gestureHandlerRootView}>
+          <SafeAreaProvider>
+            <RootNavigator />
+          </SafeAreaProvider>
+        </GestureHandlerRootView>
+      </PersistGate>
+    </Provider>
   );
 }
 

@@ -1,8 +1,15 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {IntroData} from '../IntroData';
 
-const IntroItem = ({item, index, navigateHome}) => {
+interface IntroItemProps {
+  item: IntroData;
+  index: number;
+  navigateHome: () => void;
+}
+
+const IntroItem = ({item, index, navigateHome}: IntroItemProps) => {
   const {image, title, subTitle, endBtn} = item;
   console.log('index', index);
   return (
@@ -73,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IntroItem;
+export default React.memo(IntroItem);

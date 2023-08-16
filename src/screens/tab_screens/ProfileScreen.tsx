@@ -11,17 +11,15 @@ import CustomSafeAreaView from '../../components/CustomSafeAreaView';
 import ProfileImage from '../../../assets/images/profile/profile.jpg';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CustomButton from '../../components/CustomButton';
-import EncryptedStorage from 'react-native-encrypted-storage';
-import {useAuth} from '../../context/auth_context/useAuth';
 import {ProfileScreenProps} from '../../navigators/ProfileNavigator';
+import {useAppDispatch} from '../../app/hooks';
+import {signOut} from '../../feature/auth/authSlice';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
-  const {signOut} = useAuth();
+  const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
-    await EncryptedStorage.removeItem('token');
-    // await EncryptedStorage.removeItem('introScreenDisplayed');
-    signOut();
+    dispatch(signOut());
   };
 
   return (

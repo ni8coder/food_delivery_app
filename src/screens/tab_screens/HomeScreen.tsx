@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import CustomSafeAreaView from '../../components/CustomSafeAreaView';
@@ -80,8 +80,12 @@ const HomeScreen = () => {
             horizontal
             contentContainerStyle={styles.itemViewScroll}
             showsHorizontalScrollIndicator={false}>
-            {SNACKS.map(item => (
-              <SnackItem SVGImage={item.SVGImage} title={item.title} />
+            {SNACKS.map((item, idx) => (
+              <SnackItem
+                key={idx.toString()}
+                SVGImage={item.SVGImage}
+                title={item.title}
+              />
             ))}
           </ScrollView>
         </View>
@@ -126,8 +130,8 @@ const HomeScreen = () => {
         </View>
 
         <View style={{gap: 15}}>
-          {NEARME_DATA.map(item => (
-            <RenderItem item={item} />
+          {NEARME_DATA.map((item, idx) => (
+            <RenderItem key={idx.toString()} item={item} />
           ))}
         </View>
       </ScrollView>
