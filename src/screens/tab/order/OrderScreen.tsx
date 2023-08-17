@@ -1,7 +1,7 @@
 import {View, Text, FlatList, Button} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {BASE_URL, GET_POSTS} from '../../constants/api_constants';
-import CustomSafeAreaView from '../../components/CustomSafeAreaView';
+import {BASE_URL, GET_POSTS} from '../../../constants/api_constants';
+import CustomSafeAreaView from '../../../components/CustomSafeAreaView';
 
 type Posts = {
   userId: number;
@@ -10,7 +10,7 @@ type Posts = {
   body: string;
 };
 
-const OrderScreen = () => {
+const OrderScreen = ({navigation}) => {
   const [posts, setPosts] = useState<Posts[]>([]);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -30,7 +30,7 @@ const OrderScreen = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
+    // fetchPosts();
   }, []);
 
   return (

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import DotCarousel from '../../components/DotCarousel';
+import DotCarousel from '@components/DotCarousel';
 import {INTRO_DATA} from './IntroData';
-import IntroItem from './components/IntroItem';
-import {useAppDispatch} from '../../app/hooks';
-import {introShown} from '../../feature/auth/authSlice';
+import IntroItem from './IntroItem';
+import {useAppDispatch} from '@app/hooks';
+import {introShown} from '@feature/auth/authSlice';
 
 const IntroScreen = () => {
   const [currentIndictorIndex, setIndicatorIndex] = React.useState(0);
@@ -53,33 +53,6 @@ const IntroScreen = () => {
     </>
   );
 };
-
-// const IntroScreen = () => {
-//   const width = Dimensions.get('window').width;
-//   return (
-//     <View style={{flex: 1}}>
-//       <Carousel
-//         loop
-//         width={width}
-//         height={width / 2}
-//         autoPlay={true}
-//         data={[...new Array(6).keys()]}
-//         scrollAnimationDuration={1000}
-//         onSnapToItem={index => console.log('current index:', index)}
-//         renderItem={({index}) => (
-//           <View
-//             style={{
-//               flex: 1,
-//               borderWidth: 1,
-//               justifyContent: 'center',
-//             }}>
-//             <Text style={{textAlign: 'center', fontSize: 30}}>{index}</Text>
-//           </View>
-//         )}
-//       />
-//     </View>
-//   );
-// };
 
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: '#D35400'},

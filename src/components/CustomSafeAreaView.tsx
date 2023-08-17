@@ -1,6 +1,7 @@
 import {View} from 'react-native';
 import React, {ReactNode} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import colors from 'theme/colors';
 
 type CustomSafeAreaViewProps = {
   style: object;
@@ -15,7 +16,7 @@ const CustomSafeAreaView = (props: CustomSafeAreaViewProps) => {
     paddingBottm: insets.bottom,
     paddingLeft: insets.left,
     paddingRight: insets.right,
-    backgroundColor: '#E5E5E5',
+    backgroundColor: colors.app.background,
   };
 
   return (

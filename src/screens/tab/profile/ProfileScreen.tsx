@@ -7,13 +7,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import CustomSafeAreaView from '../../components/CustomSafeAreaView';
-import ProfileImage from '../../../assets/images/profile/profile.jpg';
+import CustomSafeAreaView from '@components/CustomSafeAreaView';
+import ProfileImage from '@assets/images/profile/profile.jpg';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import CustomButton from '../../components/CustomButton';
-import {ProfileScreenProps} from '../../navigators/ProfileNavigator';
-import {useAppDispatch} from '../../app/hooks';
-import {signOut} from '../../feature/auth/authSlice';
+import CustomButton from '@components/CustomButton';
+import {ProfileScreenProps} from '@navigators/ProfileNavigator';
+import {useAppDispatch} from '@app/hooks';
+import {signOut} from '@feature/auth/authSlice';
+import {fontFamily, fontSize} from '@theme/fonts';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
   const dispatch = useAppDispatch();
@@ -24,6 +26,11 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
+      {/* <TouchableOpacity
+        onPress={() => navigation.openDrawer()}
+        style={{position: 'absolute', top: 50, right: 20}}>
+        <FontAwesomeIcon name={'bars'} size={20} />
+      </TouchableOpacity> */}
       <ScrollView>
         <View style={styles.imageContainer}>
           <Image source={ProfileImage} style={styles.profileImage} />
@@ -98,12 +105,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   nameText: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 18,
+    fontFamily: fontFamily.poppinsBold,
+    fontSize: fontSize.medium,
   },
   phoneNumber: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: 14,
+    fontFamily: fontFamily.robotoRegular,
+    fontSize: fontSize.normal,
   },
   linkView: {
     flexDirection: 'row',

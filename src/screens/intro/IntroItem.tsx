@@ -1,7 +1,7 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {IntroData} from '../IntroData';
+import {IntroData} from './IntroData';
 
 interface IntroItemProps {
   item: IntroData;

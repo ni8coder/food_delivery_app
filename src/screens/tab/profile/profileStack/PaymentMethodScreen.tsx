@@ -6,18 +6,17 @@ import {
   TouchableOpacity,
   FlatList,
   Alert,
-  Button,
 } from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
-import CreditCard from '../../../assets/images/profile/credit-card.png';
-import Wallet from '../../../assets/images/profile/wallet.png';
+import CreditCard from '@assets/images/profile/credit-card.png';
+import Wallet from '@assets/images/profile/wallet.png';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 import {TextInput} from 'react-native-gesture-handler';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '@components/CustomButton';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
-import {PaymentMethodScreenProps} from '../../navigators/ProfileNavigator';
+import {PaymentMethodScreenProps} from '@navigators/ProfileNavigator';
 
 // class ClassLifeCycle extends React.PureComponent {
 //   constructor(props) {

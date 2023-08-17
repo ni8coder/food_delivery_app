@@ -1,7 +1,7 @@
-import ChickenLeg from '../../../assets/images/initial_carousel/chicken_leg.png';
-import Shipped from '../../../assets/images/initial_carousel/shipped.png';
-import Group from '../../../assets/images/initial_carousel/group.png';
-import CreditCard from '../../../assets/images/initial_carousel/credit_card.png';
+import ChickenLeg from '@assets/images/initial_carousel/chicken_leg.png';
+import Shipped from '@assets/images/initial_carousel/shipped.png';
+import Group from '@assets/images/initial_carousel/group.png';
+import CreditCard from '@assets/images/initial_carousel/credit_card.png';
 import {ImageSourcePropType} from 'react-native';
 
 export type IntroData = {

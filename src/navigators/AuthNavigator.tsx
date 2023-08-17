@@ -1,7 +1,7 @@
 import React from 'react';
-import AuthScreen from '../screens/auth_screens/AuthScreen';
-import LoginScreen from '../screens/auth_screens/LoginScreen';
-import SignupScreen from '../screens/auth_screens/SignupScreen';
+import AuthScreen from '@screens/auth/AuthScreen';
+import LoginScreen from '@screens/auth/login/LoginScreen';
+import SignupScreen from '@screens/auth/signup/SignupScreen';
 import {
   NativeStackScreenProps,
   createNativeStackNavigator,

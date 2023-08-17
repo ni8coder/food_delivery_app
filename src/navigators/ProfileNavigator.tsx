@@ -3,9 +3,9 @@ import {
   NativeStackScreenProps,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import ProfileScreen from '../screens/tab_screens/ProfileScreen';
-import PaymentMethodScreen from '../screens/tab_screens/PaymentMethodScreen';
-import CardDetails from '../screens/tab_screens/CardDetails';
+import ProfileScreen from '@screens/tab/profile/ProfileScreen';
+import PaymentMethodScreen from '@screens/tab/profile/profileStack/PaymentMethodScreen';
+import CardDetails from '@screens/tab/profile/profileStack/CardDetails';
 
 type ProfileStackParamList = {
   Profile: undefined;

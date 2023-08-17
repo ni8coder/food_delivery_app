@@ -1,9 +1,9 @@
 import {View, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import CustomSafeAreaView from '../../components/CustomSafeAreaView';
-import Hamburger from '../../../assets/images/auth/hamburger.png';
-import CustomButton from '../../components/CustomButton';
-import {AuthScreenProps} from '../../navigators/AuthNavigator';
+import CustomSafeAreaView from '@components/CustomSafeAreaView';
+import Hamburger from '@assets/images/auth/hamburger.png';
+import CustomButton from '@components/CustomButton';
+import {AuthScreenProps} from '@navigators/AuthNavigator';
 
 const AuthScreen = ({navigation}: AuthScreenProps) => {
   return (

@@ -1,8 +1,8 @@
 import {View, Text, Button} from 'react-native';
 import React from 'react';
-import {CardDetailScreenProps} from '../../navigators/ProfileNavigator';
-import {useAppDispatch, useAppSelector} from '../../app/hooks';
-import {decrement, increment} from '../../feature/counter/CounterSlice';
+import {CardDetailScreenProps} from '../../../../navigators/ProfileNavigator';
+import {useAppDispatch, useAppSelector} from '../../../../app/hooks';
+import {decrement, increment} from '../../../../feature/counter/CounterSlice';
 
 const CardDetails = ({navigation, route}: CardDetailScreenProps) => {
   const {cardNumber, cvv} = route.params;

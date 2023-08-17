@@ -1,11 +1,11 @@
 import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
 import React from 'react';
-import CustomSafeAreaView from '../../components/CustomSafeAreaView';
-import CustomButton from '../../components/CustomButton';
+import CustomSafeAreaView from '@components/CustomSafeAreaView';
+import CustomButton from '@components/CustomButton';
 import EncryptedStorage from 'react-native-encrypted-storage';
-import {LoginScreenProps} from '../../navigators/AuthNavigator';
-import {useAppDispatch} from '../../app/hooks';
-import {signIn} from '../../feature/auth/authSlice';
+import {LoginScreenProps} from '@navigators/AuthNavigator';
+import {useAppDispatch} from '@app/hooks';
+import {signIn} from '@feature/auth/authSlice';
 
 const LoginScreen = ({navigation}: LoginScreenProps) => {
   const [username, setUsername] = React.useState('');

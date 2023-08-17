@@ -1,17 +1,17 @@
 import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import CustomSafeAreaView from '../../components/CustomSafeAreaView';
+import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
-import CoffeeCup from '../../../assets/images/home/coffee-cup.svg';
-import PotatoChips from '../../../assets/images/home/potato-chips.svg';
-import CakePiece from '../../../assets/images/home/cake-piece.svg';
-import Group1 from '../../../assets/images/home/Group-1.png';
-import Group2 from '../../../assets/images/home/Group-2.png';
-import Group3 from '../../../assets/images/home/Group-3.png';
-import Group4 from '../../../assets/images/home/Group-4.png';
-import Food from '../../../assets/images/home/food-image.png';
-import Star from '../../../assets/images/home/star.png';
+import CoffeeCup from '@assets/images/home/coffee-cup.svg';
+import PotatoChips from '@assets/images/home/potato-chips.svg';
+import CakePiece from '@assets/images/home/cake-piece.svg';
+import Group1 from '@assets/images/home/Group-1.png';
+import Group2 from '@assets/images/home/Group-2.png';
+import Group3 from '@assets/images/home/Group-3.png';
+import Group4 from '@assets/images/home/Group-4.png';
+import Food from '@assets/images/home/food-image.png';
+import Star from '@assets/images/home/star.png';
 import {SvgProps} from 'react-native-svg';
 
 const SNACKS = [
@@ -42,7 +42,7 @@ const SnackItem = (props: SnackItemProps) => {
 
 const NEARME_DATA = [{}, {}, {}, {}, {}, {}];
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const RenderItem = ({item}) => {
     return (
       <View style={{flexDirection: 'row', gap: 15}}>
