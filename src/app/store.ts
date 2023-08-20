@@ -3,6 +3,8 @@ import reducers from '../feature';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import {createLogger} from 'redux-logger';
+import createSagaMiddleware from '@redux-saga/core';
+import rootSaga from 'sagas';
 
 //set dev mode constant
 const isInDevMode = __DEV__;
@@ -14,6 +16,8 @@ const rootReducer = combineReducers(reducers);
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  whitelist: ['auth'], //only persist these reducers
+  blacklist: [], //do not persist these reducers
 };
 
 //create a persist reducer
@@ -27,12 +31,18 @@ const logger = createLogger({
   diff: true,
 });
 
+//create saga middleware
+const saga = createSagaMiddleware();
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({serializableCheck: false}).concat(logger),
+    getDefaultMiddleware({serializableCheck: false}).concat(logger, saga),
   devTools: true,
 });
+
+//run all sagas
+saga.run(rootSaga);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof rootReducer>;

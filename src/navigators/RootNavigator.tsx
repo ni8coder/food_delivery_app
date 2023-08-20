@@ -14,9 +14,11 @@ const RootNavigator = () => {
   const renderStackScreens = () => {
     if (!isLoggedIn) {
       return <RootStack.Screen name="AuthNav" component={AuthNavigator} />;
-    } else if (!isIntroShown) {
-      return <RootStack.Screen name="Intro" component={IntroScreen} />;
-    } else {
+    }
+    // else if (!isIntroShown) {
+    //   return <RootStack.Screen name="Intro" component={IntroScreen} />;
+    // }
+    else {
       return <RootStack.Screen name="Tabs" component={TabNavigator} />;
     }
   };

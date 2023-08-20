@@ -1,4 +1,8 @@
-import {SIGN_IN, RESTORE_TOKEN, SIGN_OUT} from '../../constants/auth_actions';
+import {
+  SIGN_IN,
+  RESTORE_TOKEN,
+  SIGN_OUT,
+} from '../../config/constants/auth_actions';
 import {AuthState} from '../../models/AuthModel.js';
 
 type ACTION_TYPE =
