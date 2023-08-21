@@ -1,6 +1,6 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
-export type FeedPost = {
+export interface FeedPost {
   title: string;
   author: string;
   source: {
@@ -9,12 +9,12 @@ export type FeedPost = {
   };
   publishedAt: string;
   url: string;
-};
+}
 
-type InitialStateType = {
+interface InitialStateType {
   posts: FeedPost[];
   isLoading: boolean;
-};
+}
 
 const initialState: InitialStateType = {
   posts: [],
@@ -29,9 +29,9 @@ const feedSlice = createSlice({
       console.log('inside reducer getFeedsFetch', action.payload);
       state.isLoading = true;
     },
-    getFeedsSuccess: (state, action) => {
+    getFeedsSuccess: (state, {payload: data}: PayloadAction<FeedPost[]>) => {
       state.isLoading = false;
-      state.posts = action.payload;
+      state.posts = data;
     },
     getFeedsFailure: state => {
       state.isLoading = false;
