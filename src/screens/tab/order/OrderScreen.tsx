@@ -68,7 +68,7 @@ const OrderScreen = ({navigation}) => {
         title="Add To Basket"
         onPress={async () => {
           console.log('event sent', event);
-          await analytics().logEvent('test_run_ios', {
+          await analytics().logEvent('test_run_ios_awais', {
             name: 'Awais',
           });
         }}
