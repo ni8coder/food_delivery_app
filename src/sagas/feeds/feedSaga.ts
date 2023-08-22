@@ -16,11 +16,11 @@ type ResponseType = {
 };
 
 function* workGetsFeedFetch(action: PayloadAction<number>) {
-  console.log('saga function start executing');
+  // console.log('saga function start executing');
 
   const payload = action.payload;
   try {
-    console.log('before api call', payload);
+    // console.log('before api call', payload);
     yield customDelay(1000);
 
     const feeds: ResponseType = yield call(() =>
@@ -29,7 +29,7 @@ function* workGetsFeedFetch(action: PayloadAction<number>) {
         .then(data => data),
     );
 
-    console.log('after api call', feeds);
+    // console.log('after api call', feeds);
 
     const limitedFeeds = feeds.articles.slice(0, 30);
 
@@ -41,7 +41,7 @@ function* workGetsFeedFetch(action: PayloadAction<number>) {
 }
 
 function* feedSaga() {
-  console.log('before takeEvery');
+  // console.log('before takeEvery');
   yield takeEvery(getFeedsFetch, workGetsFeedFetch);
 }
 

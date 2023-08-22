@@ -37,7 +37,7 @@ const saga = createSagaMiddleware();
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({serializableCheck: false}).concat(logger, saga),
+    getDefaultMiddleware({serializableCheck: false}).concat(saga, logger),
   devTools: true,
 });
 

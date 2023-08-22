@@ -5,6 +5,7 @@ import {
   Button,
   StyleSheet,
   RefreshControl,
+  Platform,
 } from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import CustomSafeAreaView from '../../../components/CustomSafeAreaView';
@@ -13,6 +14,14 @@ import {FeedPost, getFeedsFetch} from 'feature/feeds/feedSlice';
 import ActivityLoader from 'components/ActivityLoader';
 import colors from 'theme/colors';
 import {fontSize} from 'theme/fonts';
+import analytics from '@react-native-firebase/analytics';
+import PersistanceClass from 'utils/PersistanceClass';
+import PersistedFn from 'utils/PersistedFn';
+
+const event: string | undefined = Platform.select({
+  ios: 'test_run_ios',
+  android: 'test_run_android',
+}) as string;
 
 const OrderScreen = ({navigation}) => {
   const uid = useRef(1);
@@ -55,6 +64,15 @@ const OrderScreen = ({navigation}) => {
   return (
     <CustomSafeAreaView style={styles.container}>
       <Button onPress={fetchPosts} title="Fetch Posts" />
+      <Button
+        title="Add To Basket"
+        onPress={async () => {
+          console.log('event sent', event);
+          await analytics().logEvent('test_run_ios', {
+            name: 'Awais',
+          });
+        }}
+      />
       {feeds.length === 0 ? (
         <ActivityLoader />
       ) : (

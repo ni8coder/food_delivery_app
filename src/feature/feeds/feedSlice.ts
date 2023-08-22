@@ -26,7 +26,7 @@ const feedSlice = createSlice({
   initialState,
   reducers: {
     getFeedsFetch: (state, action) => {
-      console.log('inside reducer getFeedsFetch', action.payload);
+      // console.log('inside reducer getFeedsFetch', action.payload);
       state.isLoading = true;
     },
     getFeedsSuccess: (state, {payload: data}: PayloadAction<FeedPost[]>) => {
