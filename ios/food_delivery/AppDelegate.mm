@@ -8,7 +8,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [FIRApp configure];
-  [GMSServices provideAPIKey:@"_YOUR_API_KEY_"];
+  [GMSServices provideAPIKey:@"AIzaSyB4uOPrlEUJjx-tCcPm7BY5fn1gLwtB4BA"];
   self.moduleName = @"food_delivery";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
