@@ -4,6 +4,7 @@ import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import Hamburger from '@assets/images/auth/hamburger.png';
 import CustomButton from '@components/CustomButton';
 import {AuthScreenProps} from '@navigators/AuthNavigator';
+import SocialLogin from './components/SocialLogin';
 
 const AuthScreen = ({navigation}: AuthScreenProps) => {
   return (
@@ -21,6 +22,7 @@ const AuthScreen = ({navigation}: AuthScreenProps) => {
           titleStyle={{color: '#000'}}
         />
       </View>
+      <SocialLogin />
     </CustomSafeAreaView>
   );
 };

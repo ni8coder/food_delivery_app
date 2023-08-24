@@ -6,6 +6,7 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 import {LoginScreenProps} from '@navigators/AuthNavigator';
 import {useAppDispatch} from '@app/hooks';
 import {signIn} from '@feature/auth/authSlice';
+import SocialLogin from '../components/SocialLogin';
 
 const LoginScreen = ({navigation}: LoginScreenProps) => {
   const [username, setUsername] = React.useState('');
@@ -50,6 +51,7 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
           containerStyle={{width: '100%'}}
         />
       </View>
+      <SocialLogin />
     </CustomSafeAreaView>
   );
 };
