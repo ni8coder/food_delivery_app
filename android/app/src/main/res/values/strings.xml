@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">food_delivery</string>
+    <string name="facebook_app_id">3556088361327212</string>
+    <string name="facebook_client_token">8c574e60c07765622adf2056d3509286</string>
 </resources>
