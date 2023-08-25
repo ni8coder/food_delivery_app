@@ -5,6 +5,7 @@
 #import <AuthenticationServices/AuthenticationServices.h>
 #import <SafariServices/SafariServices.h>
 #import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
+#import <React/RCTLinkingManager.h>
 
 @implementation AppDelegate
 
@@ -26,14 +27,20 @@
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
-//new method for facebook sdk
+//new method for facebook sdk and deep linking
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-  return [[FBSDKApplicationDelegate sharedInstance]application:app
-                                                      openURL:url
-                                                      options:options];
+  if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options]) {
+    return YES;
+  }
+
+  if ([RCTLinkingManager application:app openURL:url options:options]) {
+    return YES;
+  }
+
+  return NO;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
