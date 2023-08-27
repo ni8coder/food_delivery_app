@@ -15,13 +15,18 @@ import {ProfileScreenProps} from '@navigators/ProfileNavigator';
 import {useAppDispatch} from '@app/hooks';
 import {signOut} from '@feature/auth/authSlice';
 import {fontFamily, fontSize} from '@theme/fonts';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import auth from '@react-native-firebase/auth';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
   const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
-    dispatch(signOut());
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('User signed out!');
+        dispatch(signOut());
+      });
   };
 
   return (
@@ -41,8 +46,10 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
         </View>
 
         <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.linkView}>
-            <Text>My Profile</Text>
+          <TouchableOpacity
+            style={styles.linkView}
+            onPress={() => navigation.navigate('User')}>
+            <Text>Users</Text>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.linkView}>

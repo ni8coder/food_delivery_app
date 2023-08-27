@@ -7,28 +7,45 @@ import {SignupScreenProps} from '@navigators/AuthNavigator';
 import {useAppDispatch} from '@app/hooks';
 import {signIn} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
+import auth from '@react-native-firebase/auth';
 
 const SignupScreen = ({navigation}: SignupScreenProps) => {
-  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [password2, setPassword2] = React.useState('');
 
   const dispatch = useAppDispatch();
 
   const handleSignup = async () => {
-    if (!username.replace(/\s/g, '').length) {
-      Alert.alert('Username is required');
+    if (!email.replace(/\s/g, '').length) {
+      Alert.alert('email is required');
     } else if (!password.replace(/\s/g, '').length || password !== password2) {
       Alert.alert('Password does not match');
       setPassword('');
       setPassword2('');
     } else {
-      try {
-        await EncryptedStorage.setItem('token', username);
-      } catch (error) {
-        console.log(error);
-      }
-      dispatch(signIn('dummy-auth-token'));
+      auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          console.log('User account created & signed in!');
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            console.log('That email address is already in use!');
+            Alert.alert('That email address is already in use!');
+          }
+
+          if (error.code === 'auth/invalid-email') {
+            console.log('That email address is invalid!');
+            Alert.alert('That email address is invalid!');
+          }
+          if (error.code === 'auth/weak-password') {
+            console.log(error);
+            Alert.alert('Please choose a strong password');
+          }
+
+          console.error(error);
+        });
     }
   };
 
@@ -37,9 +54,9 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
       <View style={styles.innerContainer}>
         <Text style={styles.titleStyle}>Sign Up</Text>
         <TextInput
-          placeholder="Enter Username"
-          value={username}
-          onChangeText={value => setUsername(value)}
+          placeholder="Enter email"
+          value={email}
+          onChangeText={value => setEmail(value)}
           style={styles.textInput}
         />
         <TextInput

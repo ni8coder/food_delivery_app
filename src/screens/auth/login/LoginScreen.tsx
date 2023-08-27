@@ -7,24 +7,24 @@ import {LoginScreenProps} from '@navigators/AuthNavigator';
 import {useAppDispatch} from '@app/hooks';
 import {signIn} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
+import auth from '@react-native-firebase/auth';
 
 const LoginScreen = ({navigation}: LoginScreenProps) => {
-  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const dispatch = useAppDispatch();
 
   const handleSignIn = async () => {
-    if (!username.replace(/\s/g, '').length) {
-      Alert.alert('Username is required');
+    if (!email.replace(/\s/g, '').length) {
+      Alert.alert('email is required');
     } else if (password === '') {
       Alert.alert('Password is required');
     } else {
       try {
-        await EncryptedStorage.setItem('token', username);
+        auth().signInWithEmailAndPassword(email, password);
       } catch (error) {
         console.log(error);
       }
-      dispatch(signIn('dummy-auth-token'));
     }
   };
 
@@ -33,9 +33,9 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
       <View style={styles.innerContainer}>
         <Text style={styles.titleStyle}>Sign In</Text>
         <TextInput
-          value={username}
-          onChangeText={value => setUsername(value)}
-          placeholder="Enter Username"
+          value={email}
+          onChangeText={value => setEmail(value)}
+          placeholder="Enter email"
           style={styles.textInput}
         />
         <TextInput

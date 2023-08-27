@@ -3,30 +3,33 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import IntroScreen from '@screens/intro/IntroScreen';
 import AuthNavigator from './AuthNavigator';
-import {useAppSelector} from '../app/hooks';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
 import TabNavigator from './TabNavigator';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import {signIn, signOut} from 'feature/auth/authSlice';
 
 const RootStack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const {isIntroShown, isLoggedIn} = useAppSelector(state => state.auth);
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+  const {isIntroShown, isLoggedIn, isLoading} = useAppSelector(
+    state => state.auth,
+  );
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(user => {
       console.log('User', user);
-      setUser(user);
-      if (initializing) {
-        setInitializing(false);
+      if (user !== null) {
+        dispatch(signIn(user?.toJSON()));
+      } else {
+        dispatch(signOut());
       }
     });
 
     return subscriber; // unsubscribe on unmount
-  }, [initializing]);
+  }, [dispatch]);
 
-  if (initializing) {
+  if (isLoading) {
     return null;
   }
 
