@@ -58,6 +58,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
           value={email}
           onChangeText={value => setEmail(value)}
           style={styles.textInput}
+          autoCapitalize={'none'}
         />
         <TextInput
           placeholder="Password"

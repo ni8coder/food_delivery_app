@@ -6,6 +6,7 @@ import {
   getFeedsFetch,
   getFeedsSuccess,
 } from 'feature/feeds/feedSlice';
+import ApiHelper from 'helpers/ApiHelper';
 import {takeEvery, put, call} from 'redux-saga/effects';
 import {customDelay} from 'utils/lodash';
 
@@ -23,13 +24,11 @@ function* workGetsFeedFetch(action: PayloadAction<number>) {
     // console.log('before api call', payload);
     yield customDelay(1000);
 
-    const feeds: ResponseType = yield call(() =>
-      fetch(NEWS_API)
-        .then(res => res.json())
-        .then(data => data),
+    const feeds: ResponseType = yield call(
+      async () => (await ApiHelper.get(NEWS_API, undefined))?.data,
     );
 
-    // console.log('after api call', feeds);
+    console.log('after api call', feeds);
 
     const limitedFeeds = feeds.articles.slice(0, 30);
 

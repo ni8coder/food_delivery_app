@@ -5,7 +5,7 @@ import CustomButton from '@components/CustomButton';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {LoginScreenProps} from '@navigators/AuthNavigator';
 import {useAppDispatch} from '@app/hooks';
-import {signIn} from '@feature/auth/authSlice';
+import {signIn, takeSignIn} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
 import auth from '@react-native-firebase/auth';
 
@@ -21,7 +21,8 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
       Alert.alert('Password is required');
     } else {
       try {
-        auth().signInWithEmailAndPassword(email, password);
+        // auth().signInWithEmailAndPassword(email, password);
+        dispatch(takeSignIn({email, password}));
       } catch (error) {
         console.log(error);
       }
@@ -37,6 +38,7 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
           onChangeText={value => setEmail(value)}
           placeholder="Enter email"
           style={styles.textInput}
+          autoCapitalize={'none'}
         />
         <TextInput
           value={password}

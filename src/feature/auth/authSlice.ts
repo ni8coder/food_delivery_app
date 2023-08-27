@@ -11,6 +11,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    takeSignUp: state => {
+      //
+    },
+    takeSignIn: (state, action) => {
+      //
+    },
     signIn: (state, action) => {
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -18,6 +24,7 @@ const authSlice = createSlice({
     },
     signOut: state => {
       state.isLoggedIn = false;
+      state.isLoading = false;
       state.user = {};
     },
     introShown: state => {
@@ -26,6 +33,7 @@ const authSlice = createSlice({
   },
 });
 
-export const {signIn, signOut, introShown} = authSlice.actions;
+export const {takeSignUp, takeSignIn, signIn, signOut, introShown} =
+  authSlice.actions;
 
 export default authSlice.reducer;

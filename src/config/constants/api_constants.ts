@@ -1,4 +1,9 @@
-export const BASE_URL = 'https://jsonplaceholde.typicode.com/';
+// export const BASE_URL = 'https://jsonplaceholde.typicode.com/';
+export const BASE_URL = 'http://localhost:3000/';
+const API = 'api/';
+
+export const CREATE_USER = `${API}Users/`;
+export const LOGIN_USER = `${API}Users/login`;
 
 export const GET_POSTS = 'posts';
 
