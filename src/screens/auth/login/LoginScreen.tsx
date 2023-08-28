@@ -30,8 +30,8 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
       Alert.alert('Password is required');
     } else {
       try {
-        // auth().signInWithEmailAndPassword(email, password);
-        dispatch(takeSignIn({email, password}));
+        auth().signInWithEmailAndPassword(email, password);
+        // dispatch(takeSignIn({email, password}));
       } catch (error) {
         console.log(error);
       }

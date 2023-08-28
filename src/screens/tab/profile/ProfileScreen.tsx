@@ -21,14 +21,14 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
   const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
-    // auth()
-    //   .signOut()
-    //   .then(() => {
-    //     console.log('User signed out!');
-    //     dispatch(signOut());
-    //   })
-    //   .catch(error => console.log(error));
-    dispatch(signOut());
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('User signed out!');
+        dispatch(signOut());
+      })
+      .catch(error => console.log(error));
+    // dispatch(signOut());
   };
 
   return (
