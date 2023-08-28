@@ -1,4 +1,12 @@
-import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import React from 'react';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import CustomButton from '@components/CustomButton';
@@ -8,6 +16,8 @@ import {useAppDispatch} from '@app/hooks';
 import {signIn, takeSignUp} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
 import auth from '@react-native-firebase/auth';
+import colors from 'theme/colors';
+import {fontFamily, fontSize} from 'theme/fonts';
 
 const SignupScreen = ({navigation}: SignupScreenProps) => {
   const [email, setEmail] = React.useState('');
@@ -49,7 +59,9 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
   };
 
   return (
-    <CustomSafeAreaView style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.innerContainer}>
         <Text style={styles.titleStyle}>Sign Up</Text>
         <TextInput
@@ -58,6 +70,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
           onChangeText={value => setEmail(value)}
           style={styles.textInput}
           autoCapitalize={'none'}
+          placeholderTextColor={'rgba(0,0,0,0.5)'}
         />
         <TextInput
           placeholder="Password"
@@ -65,6 +78,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
           style={styles.textInput}
           value={password}
           onChangeText={value => setPassword(value)}
+          placeholderTextColor={'rgba(0,0,0,0.5)'}
         />
         <TextInput
           placeholder="Re-enter Password"
@@ -72,6 +86,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
           style={styles.textInput}
           value={password2}
           onChangeText={value => setPassword2(value)}
+          placeholderTextColor={'rgba(0,0,0,0.5)'}
         />
         <CustomButton
           title="Sign Up"
@@ -80,7 +95,7 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
         />
       </View>
       <SocialLogin />
-    </CustomSafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -99,9 +114,10 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   titleStyle: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 24,
+    fontFamily: fontFamily.poppinsBold,
+    fontSize: fontSize.large,
     alignSelf: 'flex-start',
+    color: colors.black,
   },
   textInput: {
     height: 50,

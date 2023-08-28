@@ -7,6 +7,7 @@ import {useAppDispatch, useAppSelector} from '../app/hooks';
 import TabNavigator from './TabNavigator';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {signIn, signOut} from 'feature/auth/authSlice';
+import NotificationHelper from 'helpers/NotificationHelper';
 
 const RootStack = createNativeStackNavigator();
 
@@ -25,9 +26,17 @@ const RootNavigator = () => {
         dispatch(signOut());
       }
     });
-
     return subscriber; // unsubscribe on unmount
   }, [dispatch]);
+
+  useEffect(() => {
+    NotificationHelper.getToken();
+    NotificationHelper.registerMessageHandlers();
+
+    return () => {
+      NotificationHelper.clearListeners();
+    };
+  }, []);
 
   if (isLoading) {
     return null;

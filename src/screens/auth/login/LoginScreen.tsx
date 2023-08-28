@@ -1,4 +1,12 @@
-import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import React from 'react';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import CustomButton from '@components/CustomButton';
@@ -8,6 +16,7 @@ import {useAppDispatch} from '@app/hooks';
 import {signIn, takeSignIn} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
 import auth from '@react-native-firebase/auth';
+import colors from 'theme/colors';
 
 const LoginScreen = ({navigation}: LoginScreenProps) => {
   const [email, setEmail] = React.useState('');
@@ -30,7 +39,10 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
   };
 
   return (
-    <CustomSafeAreaView style={styles.container}>
+    // <CustomSafeAreaView style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.innerContainer}>
         <Text style={styles.titleStyle}>Sign In</Text>
         <TextInput
@@ -39,6 +51,7 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
           placeholder="Enter email"
           style={styles.textInput}
           autoCapitalize={'none'}
+          placeholderTextColor={'rgba(0,0,0,0.5)'}
         />
         <TextInput
           value={password}
@@ -46,6 +59,7 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
           placeholder="Password"
           secureTextEntry
           style={styles.textInput}
+          placeholderTextColor={'rgba(0,0,0,0.5)'}
         />
         <CustomButton
           title="Sign In"
@@ -54,7 +68,8 @@ const LoginScreen = ({navigation}: LoginScreenProps) => {
         />
       </View>
       <SocialLogin />
-    </CustomSafeAreaView>
+    </KeyboardAvoidingView>
+    // </CustomSafeAreaView>
   );
 };
 
@@ -76,6 +91,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     fontSize: 24,
     alignSelf: 'flex-start',
+    color: colors.black,
   },
   textInput: {
     height: 50,
