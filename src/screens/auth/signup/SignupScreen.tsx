@@ -5,7 +5,7 @@ import CustomButton from '@components/CustomButton';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {SignupScreenProps} from '@navigators/AuthNavigator';
 import {useAppDispatch} from '@app/hooks';
-import {signIn} from '@feature/auth/authSlice';
+import {signIn, takeSignUp} from '@feature/auth/authSlice';
 import SocialLogin from '../components/SocialLogin';
 import auth from '@react-native-firebase/auth';
 
@@ -24,28 +24,27 @@ const SignupScreen = ({navigation}: SignupScreenProps) => {
       setPassword('');
       setPassword2('');
     } else {
-      auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log('User account created & signed in!');
-        })
-        .catch(error => {
-          if (error.code === 'auth/email-already-in-use') {
-            console.log('That email address is already in use!');
-            Alert.alert('That email address is already in use!');
-          }
-
-          if (error.code === 'auth/invalid-email') {
-            console.log('That email address is invalid!');
-            Alert.alert('That email address is invalid!');
-          }
-          if (error.code === 'auth/weak-password') {
-            console.log(error);
-            Alert.alert('Please choose a strong password');
-          }
-
-          console.error(error);
-        });
+      // auth()
+      //   .createUserWithEmailAndPassword(email, password)
+      //   .then(() => {
+      //     console.log('User account created & signed in!');
+      //   })
+      //   .catch(error => {
+      //     if (error.code === 'auth/email-already-in-use') {
+      //       console.log('That email address is already in use!');
+      //       Alert.alert('That email address is already in use!');
+      //     }
+      //     if (error.code === 'auth/invalid-email') {
+      //       console.log('That email address is invalid!');
+      //       Alert.alert('That email address is invalid!');
+      //     }
+      //     if (error.code === 'auth/weak-password') {
+      //       console.log(error);
+      //       Alert.alert('Please choose a strong password');
+      //     }
+      //     console.error(error);
+      //   });
+      dispatch(takeSignUp({email, password}));
     }
   };
 

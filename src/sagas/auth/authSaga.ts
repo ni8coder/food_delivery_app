@@ -49,6 +49,7 @@ function* loginFlow() {
     const signInTask = yield fork(authorize, payload.email, payload.password);
 
     const action = yield take(signOut);
+    console.log('signout saga called');
     if (action === signOut) {
       yield cancel(signInTask);
     }

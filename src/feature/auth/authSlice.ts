@@ -11,7 +11,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    takeSignUp: state => {
+    takeSignUp: (state, action) => {
       //
     },
     takeSignIn: (state, action) => {
