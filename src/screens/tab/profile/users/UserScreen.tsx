@@ -18,38 +18,26 @@ const ItemSeparator = () => {
 const UserScreen = ({navigation}: UserScreenProps) => {
   const [users, setUsers] = useState<FirebaseDocCollection>([]);
 
+  // useEffect(() => {
+  //   const getAllUsers = async () => {
+  //     const allUsers = (await firestore().collection('users').get()).docs;
+  //     setUsers(allUsers);
+  //     console.log('all users', allUsers);
+  //   };
+
+  //   getAllUsers();
+  // }, []);
+
   useEffect(() => {
-    const getAllUsers = async () => {
-      const allUsers = (await firestore().collection('users').get()).docs;
-      setUsers(allUsers);
-      console.log('all users', allUsers);
-      allUsers.map(user => {
-        if (user.data().parent) {
-          user
-            .data()
-            .parent.get()
-            .then(res => console.log('ref', res));
-        }
-        console.log(user.data());
-      });
-    };
-
-    getAllUsers();
-
-    firestore()
+    const subscriber = firestore()
       .collection('users')
-      .get()
-      .then(querySnapshot => {
-        console.log('Total users: ', querySnapshot);
-
-        querySnapshot.forEach(documentSnapshot => {
-          console.log(
-            'User ID: ',
-            documentSnapshot.id,
-            documentSnapshot.data(),
-          );
-        });
+      .onSnapshot(querySnapshot => {
+        console.log('Realtime User data: ', querySnapshot.docs);
+        setUsers(querySnapshot.docs);
       });
+
+    // Stop listening for updates when no longer required
+    return () => subscriber();
   }, []);
 
   return (
@@ -73,7 +61,11 @@ const UserScreen = ({navigation}: UserScreenProps) => {
           );
         }}
       />
-      <TouchableOpacity style={styles.addUser} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.addUser}
+        onPress={() => {
+          navigation.navigate('Add User');
+        }}>
         <AntDesign name={'adduser'} size={35} color={colors.primary} />
       </TouchableOpacity>
     </View>

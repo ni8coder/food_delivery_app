@@ -13,6 +13,7 @@ import {StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import {store, persistor} from './app/store';
 import {PersistGate} from 'redux-persist/integration/react';
+import {Toast} from 'react-native-toast-message/lib/src/Toast';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <GestureHandlerRootView style={styles.gestureHandlerRootView}>
           <SafeAreaProvider>
             <RootNavigator />
+            <Toast />
           </SafeAreaProvider>
         </GestureHandlerRootView>
       </PersistGate>

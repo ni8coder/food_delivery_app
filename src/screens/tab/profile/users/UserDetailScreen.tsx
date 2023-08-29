@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
-import React, {useCallback, useDebugValue, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import ProfileImage from '@assets/images/profile/avatar.jpeg';
 import {fontFamily, fontSize} from 'theme/fonts';
 import {UserDetailScreenProps} from 'navigators/ProfileNavigator';
@@ -112,7 +112,13 @@ const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
           Parents
         </Text>
 
-        {user?.parent ? renderUser(parent) : <Text>No Parent Found</Text>}
+        {user?.parent ? (
+          renderUser(parent)
+        ) : (
+          <Text style={[styles.regularText, styles.center]}>
+            No Parent Found
+          </Text>
+        )}
       </View>
 
       <View style={styles.separator} />

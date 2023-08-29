@@ -25,7 +25,7 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
       .signOut()
       .then(() => {
         console.log('User signed out!');
-        dispatch(signOut());
+        // dispatch(signOut());
       })
       .catch(error => console.log(error));
     // dispatch(signOut());

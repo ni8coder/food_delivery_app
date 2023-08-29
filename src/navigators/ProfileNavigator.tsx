@@ -9,6 +9,7 @@ import CardDetails from 'screens/tab/profile/payment/CardDetails';
 import UserScreen from 'screens/tab/profile/users/UserScreen';
 import UserDetailScreen from 'screens/tab/profile/users/UserDetailScreen';
 import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
+import AddUserScreen from 'screens/tab/profile/users/AddUserScreen';
 
 type ProfileStackParamList = {
   Profile: undefined;
@@ -16,6 +17,7 @@ type ProfileStackParamList = {
   'Card Detail': {cardNumber: string; cvv: string};
   User: undefined;
   'User Detail': {user: FirebaseFirestoreTypes.DocumentData | undefined};
+  'Add User': {userId: string} | undefined;
 };
 
 const ProfileStack = createNativeStackNavigator<ProfileStackParamList>();
@@ -35,6 +37,7 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen name="Card Detail" component={CardDetails} />
       <ProfileStack.Screen name="User" component={UserScreen} />
       <ProfileStack.Screen name="User Detail" component={UserDetailScreen} />
+      <ProfileStack.Screen name="Add User" component={AddUserScreen} />
     </ProfileStack.Navigator>
   );
 };
@@ -62,6 +65,11 @@ export type UserScreenProps = NativeStackScreenProps<
 export type UserDetailScreenProps = NativeStackScreenProps<
   ProfileStackParamList,
   'User Detail'
+>;
+
+export type AddUserScreenProps = NativeStackScreenProps<
+  ProfileStackParamList,
+  'Add User'
 >;
 
 export default ProfileNavigator;
