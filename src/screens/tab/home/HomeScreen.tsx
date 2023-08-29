@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, Image} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';

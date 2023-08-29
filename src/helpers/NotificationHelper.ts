@@ -1,4 +1,10 @@
-import messaging from '@react-native-firebase/messaging';
+import messaging, {
+  FirebaseMessagingTypes,
+} from '@react-native-firebase/messaging';
+
+type notificationCallback = (
+  remoteMessage: FirebaseMessagingTypes.RemoteMessage,
+) => void;
 
 class NotificationHelper {
   private onMessageListener: () => void = () => {};
@@ -20,7 +26,7 @@ class NotificationHelper {
     console.log('token', token);
   };
 
-  registerMessageHandlers = async () => {
+  registerMessageHandlers = async (onNotificationTap: notificationCallback) => {
     console.log('message handlers registered');
     //When the application is running, but in the foreground
     this.onMessageListener = messaging().onMessage(async remoteMessage => {
@@ -34,6 +40,7 @@ class NotificationHelper {
           'Notification caused app to open from background state:',
           remoteMessage,
         );
+        onNotificationTap(remoteMessage);
       },
     );
 
@@ -47,6 +54,7 @@ class NotificationHelper {
             'Notification caused app to open from quit state:',
             remoteMessage,
           );
+          onNotificationTap(remoteMessage);
         }
       });
   };

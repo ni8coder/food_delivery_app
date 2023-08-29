@@ -14,6 +14,7 @@ import {Provider} from 'react-redux';
 import {store, persistor} from './app/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <GestureHandlerRootView style={styles.gestureHandlerRootView}>
           <SafeAreaProvider>
-            <RootNavigator />
+            <NavigationContainer>
+              <RootNavigator />
+            </NavigationContainer>
             <Toast />
           </SafeAreaProvider>
         </GestureHandlerRootView>
