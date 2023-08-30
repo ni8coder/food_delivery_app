@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iFood</string>
+    <string name="app_name">iFood Staging</string>
     <string name="facebook_app_id">3556088361327212</string>
     <string name="fb_login_protocol_scheme">fb3556088361327212</string>
     <string name="facebook_client_token">499be779dd31b4daeacf9634dc07734e</string>
