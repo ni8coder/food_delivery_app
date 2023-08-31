@@ -25,7 +25,16 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'food_delivery' do
+abstract_target 'food_deliveryCommonPods' do
+  target 'food_delivery_dev' do
+   end
+
+   target 'food_delivery_staging' do
+   end
+
+   target 'food_delivery' do
+   end
+   
   use_frameworks! :linkage => :static 
   $RNFirebaseAsStaticFramework = true
 

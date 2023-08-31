@@ -8,14 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* food_deliveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* food_deliveryTests.m */; };
+		06FCC7E4C77F2EAF9D5EB71C /* Pods_food_deliveryCommonPods_food_deliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DAC8878B73F2CD1B6FCE06 /* Pods_food_deliveryCommonPods_food_deliveryTests.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1D12762CFEA49D1A15BF057C /* Pods_food_deliveryCommonPods_food_delivery_staging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED301B2739384FF206A84CA4 /* Pods_food_deliveryCommonPods_food_delivery_staging.framework */; };
 		68E16639D0E84AE48D1DC90B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67634E793148453784782506 /* Roboto-Bold.ttf */; };
+		79E4F0BB672E025B56139140 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E06C1549E73DEFA66684E7 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A661F854CC4ED6333DDA4404 /* Pods_food_delivery_food_deliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163EB1635E248804748B4915 /* Pods_food_delivery_food_deliveryTests.framework */; };
-		B169FCDB770056F129B521B8 /* Pods_food_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54908BDBAF099FE59C8DAC53 /* Pods_food_delivery.framework */; };
-		C8D903AE2A93C5DA0040CD2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8D903AD2A93C5DA0040CD2F /* GoogleService-Info.plist */; };
+		94D3822665D96359CD534E89 /* Pods_food_deliveryCommonPods_food_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674C5A2DA054B5F823750D55 /* Pods_food_deliveryCommonPods_food_delivery.framework */; };
+		C81305D52AA105F100E5F167 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		C81305D62AA105F100E5F167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		C81305DA2AA105F100E5F167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C81305DB2AA105F100E5F167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		C81305DC2AA105F100E5F167 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */; };
+		C81305DD2AA105F100E5F167 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */; };
+		C81305DE2AA105F100E5F167 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67634E793148453784782506 /* Roboto-Bold.ttf */; };
+		C81305ED2AA105F600E5F167 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		C81305EE2AA105F600E5F167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		C81305F22AA105F600E5F167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C81305F32AA105F600E5F167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		C81305F42AA105F600E5F167 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */; };
+		C81305F52AA105F600E5F167 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */; };
+		C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67634E793148453784782506 /* Roboto-Bold.ttf */; };
+		C8A6C89E2AA1284C00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */; };
+		C8A6C8A02AA1285B00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */; };
+		C8A6C8A22AA1286400C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */; };
 		E1577C0ED95843E3BCF96046 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */; };
 		F4D0E88D0A9A49569B145E14 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -34,21 +52,35 @@
 		00E356EE1AD99517003FC87E /* food_deliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = food_deliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* food_deliveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = food_deliveryTests.m; sourceTree = "<group>"; };
+		01DAC8878B73F2CD1B6FCE06 /* Pods_food_deliveryCommonPods_food_deliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_deliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06E06C1549E73DEFA66684E7 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_delivery_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* food_delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = food_delivery/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = food_delivery/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = food_delivery/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = food_delivery/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = food_delivery/main.m; sourceTree = "<group>"; };
-		163EB1635E248804748B4915 /* Pods_food_delivery_food_deliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_delivery_food_deliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18408B0B84EE5CCE8CA26B27 /* Pods-food_deliveryCommonPods-food_delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery.debug.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery.debug.xcconfig"; sourceTree = "<group>"; };
+		361811C91F8136D775658841 /* Pods-food_deliveryCommonPods-food_delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery.release.xcconfig"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-food_delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_delivery.debug.xcconfig"; path = "Target Support Files/Pods-food_delivery/Pods-food_delivery.debug.xcconfig"; sourceTree = "<group>"; };
-		54908BDBAF099FE59C8DAC53 /* Pods_food_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-food_delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_delivery.release.xcconfig"; path = "Target Support Files/Pods-food_delivery/Pods-food_delivery.release.xcconfig"; sourceTree = "<group>"; };
 		599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-food_delivery-food_deliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_delivery-food_deliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		61F010DE86832C2BB9428FDC /* Pods-food_deliveryCommonPods-food_delivery_staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_staging.debug.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging.debug.xcconfig"; sourceTree = "<group>"; };
+		674C5A2DA054B5F823750D55 /* Pods_food_deliveryCommonPods_food_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67634E793148453784782506 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		72F20D994B04E1B20D4D4BED /* Pods-food_deliveryCommonPods-food_delivery_dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_dev.debug.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = food_delivery/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-food_delivery-food_deliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_delivery-food_deliveryTests.release.xcconfig"; path = "Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests.release.xcconfig"; sourceTree = "<group>"; };
+		99A822EC1932C5FB8C3202C7 /* Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig"; sourceTree = "<group>"; };
+		9ABBDAE47BB290436878C814 /* Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C81305E72AA105F100E5F167 /* food_delivery_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81305E82AA105F100E5F167 /* food_delivery-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-dev.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-dev.plist"; sourceTree = "<absolute>"; };
+		C81305FF2AA105F600E5F167 /* food_delivery_staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery_staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81306002AA105F600E5F167 /* food_delivery-staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-staging.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-staging.plist"; sourceTree = "<absolute>"; };
+		C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8BB008D2A7E580B00F07296 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		C8BB008E2A7E580B00F07296 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		C8BB008F2A7E580B00F07296 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -68,10 +100,12 @@
 		C8BB009D2A7E580B00F07296 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		C8BB009E2A7E580B00F07296 /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		C8BB009F2A7E580B00F07296 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
-		C8D903AD2A93C5DA0040CD2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8F87B632A98011A0085EAA8 /* food_delivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = food_delivery.entitlements; path = food_delivery/food_delivery.entitlements; sourceTree = "<group>"; };
 		CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D54E30539BB31B882C9A4F81 /* Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig"; sourceTree = "<group>"; };
+		E91ACE620BC434203642286A /* Pods-food_deliveryCommonPods-food_deliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_deliveryTests.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED301B2739384FF206A84CA4 /* Pods_food_deliveryCommonPods_food_delivery_staging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_delivery_staging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A661F854CC4ED6333DDA4404 /* Pods_food_delivery_food_deliveryTests.framework in Frameworks */,
+				06FCC7E4C77F2EAF9D5EB71C /* Pods_food_deliveryCommonPods_food_deliveryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +121,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B169FCDB770056F129B521B8 /* Pods_food_delivery.framework in Frameworks */,
+				94D3822665D96359CD534E89 /* Pods_food_deliveryCommonPods_food_delivery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81305D72AA105F100E5F167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E4F0BB672E025B56139140 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81305EF2AA105F600E5F167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D12762CFEA49D1A15BF057C /* Pods_food_deliveryCommonPods_food_delivery_staging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +164,8 @@
 		13B07FAE1A68108700A75B9A /* food_delivery */ = {
 			isa = PBXGroup;
 			children = (
+				C8A6C88D2AA117C000C8718F /* GoogleServices */,
 				C8F87B632A98011A0085EAA8 /* food_delivery.entitlements */,
-				C8D903AD2A93C5DA0040CD2F /* GoogleService-Info.plist */,
 				C8BB008C2A7E580B00F07296 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -141,8 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				54908BDBAF099FE59C8DAC53 /* Pods_food_delivery.framework */,
-				163EB1635E248804748B4915 /* Pods_food_delivery_food_deliveryTests.framework */,
+				674C5A2DA054B5F823750D55 /* Pods_food_deliveryCommonPods_food_delivery.framework */,
+				01DAC8878B73F2CD1B6FCE06 /* Pods_food_deliveryCommonPods_food_deliveryTests.framework */,
+				06E06C1549E73DEFA66684E7 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework */,
+				ED301B2739384FF206A84CA4 /* Pods_food_deliveryCommonPods_food_delivery_staging.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,6 +216,8 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				1A65C064E7844F6D9E009BF4 /* Resources */,
+				C81305E82AA105F100E5F167 /* food_delivery-dev.plist */,
+				C81306002AA105F600E5F167 /* food_delivery-staging.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -175,6 +229,8 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* food_delivery.app */,
 				00E356EE1AD99517003FC87E /* food_deliveryTests.xctest */,
+				C81305E72AA105F100E5F167 /* food_delivery_dev.app */,
+				C81305FF2AA105F600E5F167 /* food_delivery_staging.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,8 +242,50 @@
 				5709B34CF0A7D63546082F79 /* Pods-food_delivery.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-food_delivery-food_deliveryTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-food_delivery-food_deliveryTests.release.xcconfig */,
+				18408B0B84EE5CCE8CA26B27 /* Pods-food_deliveryCommonPods-food_delivery.debug.xcconfig */,
+				361811C91F8136D775658841 /* Pods-food_deliveryCommonPods-food_delivery.release.xcconfig */,
+				9ABBDAE47BB290436878C814 /* Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig */,
+				E91ACE620BC434203642286A /* Pods-food_deliveryCommonPods-food_deliveryTests.release.xcconfig */,
+				72F20D994B04E1B20D4D4BED /* Pods-food_deliveryCommonPods-food_delivery_dev.debug.xcconfig */,
+				D54E30539BB31B882C9A4F81 /* Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig */,
+				61F010DE86832C2BB9428FDC /* Pods-food_deliveryCommonPods-food_delivery_staging.debug.xcconfig */,
+				99A822EC1932C5FB8C3202C7 /* Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8A6C88D2AA117C000C8718F /* GoogleServices */ = {
+			isa = PBXGroup;
+			children = (
+				C8A6C8902AA117EB00C8718F /* development */,
+				C8A6C88F2AA117E000C8718F /* staging */,
+				C8A6C88E2AA117D300C8718F /* production */,
+			);
+			path = GoogleServices;
+			sourceTree = "<group>";
+		};
+		C8A6C88E2AA117D300C8718F /* production */ = {
+			isa = PBXGroup;
+			children = (
+				C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */,
+			);
+			path = production;
+			sourceTree = "<group>";
+		};
+		C8A6C88F2AA117E000C8718F /* staging */ = {
+			isa = PBXGroup;
+			children = (
+				C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */,
+			);
+			path = staging;
+			sourceTree = "<group>";
+		};
+		C8A6C8902AA117EB00C8718F /* development */ = {
+			isa = PBXGroup;
+			children = (
+				C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */,
+			);
+			path = development;
 			sourceTree = "<group>";
 		};
 		C8BB008C2A7E580B00F07296 /* Fonts */ = {
@@ -252,7 +350,6 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
-				4B4A91BBFD2D2BDAF186254C /* [CP-User] [RNFB] Core Configuration */,
 				771402297B8E7174F3A425C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -262,6 +359,50 @@
 			name = food_delivery;
 			productName = food_delivery;
 			productReference = 13B07F961A680F5B00A75B9A /* food_delivery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C81305D12AA105F100E5F167 /* food_delivery_dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C81305E42AA105F100E5F167 /* Build configuration list for PBXNativeTarget "food_delivery_dev" */;
+			buildPhases = (
+				C81305D22AA105F100E5F167 /* [CP] Check Pods Manifest.lock */,
+				C81305D32AA105F100E5F167 /* Start Packager */,
+				C81305D42AA105F100E5F167 /* Sources */,
+				C81305D72AA105F100E5F167 /* Frameworks */,
+				C81305D92AA105F100E5F167 /* Resources */,
+				C81305E02AA105F100E5F167 /* Bundle React Native code and images */,
+				C81305E12AA105F100E5F167 /* [CP] Copy Pods Resources */,
+				C81305E32AA105F100E5F167 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = food_delivery_dev;
+			productName = food_delivery;
+			productReference = C81305E72AA105F100E5F167 /* food_delivery_dev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C81305E92AA105F600E5F167 /* food_delivery_staging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C81305FC2AA105F600E5F167 /* Build configuration list for PBXNativeTarget "food_delivery_staging" */;
+			buildPhases = (
+				C81305EA2AA105F600E5F167 /* [CP] Check Pods Manifest.lock */,
+				C81305EB2AA105F600E5F167 /* Start Packager */,
+				C81305EC2AA105F600E5F167 /* Sources */,
+				C81305EF2AA105F600E5F167 /* Frameworks */,
+				C81305F12AA105F600E5F167 /* Resources */,
+				C81305F82AA105F600E5F167 /* Bundle React Native code and images */,
+				C81305F92AA105F600E5F167 /* [CP] Copy Pods Resources */,
+				C81305FB2AA105F600E5F167 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = food_delivery_staging;
+			productName = food_delivery;
+			productReference = C81305FF2AA105F600E5F167 /* food_delivery_staging.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -296,6 +437,8 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* food_delivery */,
 				00E356ED1AD99517003FC87E /* food_deliveryTests */,
+				C81305D12AA105F100E5F167 /* food_delivery_dev */,
+				C81305E92AA105F600E5F167 /* food_delivery_staging */,
 			);
 		};
 /* End PBXProject section */
@@ -317,7 +460,33 @@
 				E1577C0ED95843E3BCF96046 /* Poppins-Bold.ttf in Resources */,
 				F4D0E88D0A9A49569B145E14 /* Roboto-Regular.ttf in Resources */,
 				68E16639D0E84AE48D1DC90B /* Roboto-Bold.ttf in Resources */,
-				C8D903AE2A93C5DA0040CD2F /* GoogleService-Info.plist in Resources */,
+				C8A6C89E2AA1284C00C8718F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81305D92AA105F100E5F167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81305DA2AA105F100E5F167 /* LaunchScreen.storyboard in Resources */,
+				C81305DB2AA105F100E5F167 /* Images.xcassets in Resources */,
+				C81305DC2AA105F100E5F167 /* Poppins-Bold.ttf in Resources */,
+				C81305DD2AA105F100E5F167 /* Roboto-Regular.ttf in Resources */,
+				C81305DE2AA105F100E5F167 /* Roboto-Bold.ttf in Resources */,
+				C8A6C8A22AA1286400C8718F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81305F12AA105F600E5F167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81305F22AA105F600E5F167 /* LaunchScreen.storyboard in Resources */,
+				C81305F32AA105F600E5F167 /* Images.xcassets in Resources */,
+				C81305F42AA105F600E5F167 /* Poppins-Bold.ttf in Resources */,
+				C81305F52AA105F600E5F167 /* Roboto-Regular.ttf in Resources */,
+				C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */,
+				C8A6C8A02AA1285B00C8718F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,34 +509,21 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		4B4A91BBFD2D2BDAF186254C /* [CP-User] [RNFB] Core Configuration */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "[CP-User] [RNFB] Core Configuration";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -Ku -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -Ku -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    if ! python3 --version >/dev/null 2>&1; then echo \"python3 not found, firebase.json file processing error.\" && exit 1; fi\n    _JSON_OUTPUT_BASE64=$(python3 -c 'import json,sys,base64;print(base64.b64encode(bytes(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"', '\"'rb'\"').read())['${_JSON_ROOT}']), '\"'utf-8'\"')).decode())' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.analytics_registration_with_ad_network_enabled\n  _ANALYTICS_REGISTRATION_WITH_AD_NETWORK=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"google_analytics_registration_with_ad_network_enabled\")\n  if [[ $_ANALYTICS_REGISTRATION_WITH_AD_NETWORK ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_REGISTRATION_WITH_AD_NETWORK_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_REGISTRATION_WITH_AD_NETWORK\")\")\n  fi\n\n  # config.google_analytics_automatic_screen_reporting_enabled\n  _ANALYTICS_AUTO_SCREEN_REPORTING=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"google_analytics_automatic_screen_reporting_enabled\")\n  if [[ $_ANALYTICS_AUTO_SCREEN_REPORTING ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAutomaticScreenReportingEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_SCREEN_REPORTING\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
-		};
 		771402297B8E7174F3A425C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -385,7 +541,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-food_delivery-food_deliveryTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-food_deliveryCommonPods-food_deliveryTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,15 +554,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -424,11 +580,193 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-food_delivery-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-food_deliveryCommonPods-food_delivery-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305D22AA105F100E5F167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-food_deliveryCommonPods-food_delivery_dev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305D32AA105F100E5F167 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305E02AA105F100E5F167 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		C81305E12AA105F100E5F167 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305E32AA105F100E5F167 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305EA2AA105F600E5F167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-food_deliveryCommonPods-food_delivery_staging-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305EB2AA105F600E5F167 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305F82AA105F600E5F167 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		C81305F92AA105F600E5F167 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C81305FB2AA105F600E5F167 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -437,15 +775,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_delivery/Pods-food_delivery-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_delivery/Pods-food_deliveryCommonPods-food_delivery-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -454,15 +792,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_delivery-food_deliveryTests/Pods-food_delivery-food_deliveryTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -504,6 +842,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C81305D42AA105F100E5F167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81305D52AA105F100E5F167 /* AppDelegate.mm in Sources */,
+				C81305D62AA105F100E5F167 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81305EC2AA105F600E5F167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81305ED2AA105F600E5F167 /* AppDelegate.mm in Sources */,
+				C81305EE2AA105F600E5F167 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -517,7 +873,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-food_delivery-food_deliveryTests.debug.xcconfig */;
+			baseConfigurationReference = 9ABBDAE47BB290436878C814 /* Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -544,7 +900,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-food_delivery-food_deliveryTests.release.xcconfig */;
+			baseConfigurationReference = E91ACE620BC434203642286A /* Pods-food_deliveryCommonPods-food_deliveryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -568,7 +924,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-food_delivery.debug.xcconfig */;
+			baseConfigurationReference = 18408B0B84EE5CCE8CA26B27 /* Pods-food_deliveryCommonPods-food_delivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -596,7 +952,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-food_delivery.release.xcconfig */;
+			baseConfigurationReference = 361811C91F8136D775658841 /* Pods-food_deliveryCommonPods-food_delivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -775,6 +1131,114 @@
 			};
 			name = Release;
 		};
+		C81305E52AA105F100E5F167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72F20D994B04E1B20D4D4BED /* Pods-food_deliveryCommonPods-food_delivery_dev.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = food_delivery/food_delivery.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "food_delivery-dev.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.food-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C81305E62AA105F100E5F167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D54E30539BB31B882C9A4F81 /* Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = food_delivery/food_delivery.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = "food_delivery-dev.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.food-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		C81305FD2AA105F600E5F167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61F010DE86832C2BB9428FDC /* Pods-food_deliveryCommonPods-food_delivery_staging.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = food_delivery/food_delivery.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "food_delivery-staging.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.food-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C81305FE2AA105F600E5F167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A822EC1932C5FB8C3202C7 /* Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = food_delivery/food_delivery.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = "food_delivery-staging.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.food-delivery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -801,6 +1265,24 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81305E42AA105F100E5F167 /* Build configuration list for PBXNativeTarget "food_delivery_dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81305E52AA105F100E5F167 /* Debug */,
+				C81305E62AA105F100E5F167 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81305FC2AA105F600E5F167 /* Build configuration list for PBXNativeTarget "food_delivery_staging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81305FD2AA105F600E5F167 /* Debug */,
+				C81305FE2AA105F600E5F167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
