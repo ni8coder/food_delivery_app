@@ -42,8 +42,6 @@ const AddUserScreen = () => {
       });
   };
 
-  //searchable dropdown will be added
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
