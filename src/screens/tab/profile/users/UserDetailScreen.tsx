@@ -1,13 +1,23 @@
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import ProfileImage from '@assets/images/profile/avatar.jpeg';
 import {fontFamily, fontSize} from 'theme/fonts';
 import {UserDetailScreenProps} from 'navigators/ProfileNavigator';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
 import colors from 'theme/colors';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
+const usersRef = firestore().collection('users');
 
 const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
   const [parent, setParent] = useState<FirebaseFirestoreTypes.DocumentData>();
@@ -22,40 +32,30 @@ const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
     [],
   );
 
-  const fetchChild = useCallback(
-    async (childRefArray: FirebaseFirestoreTypes.DocumentReference[]) => {
-      let childData: FirebaseFirestoreTypes.DocumentData[] = [];
-      for await (const childRef of childRefArray) {
-        const result = await childRef.get();
-        const data = result.data() as FirebaseFirestoreTypes.DocumentData;
-        childData.push(data);
-      }
-
-      setChild(childData);
-    },
-    [],
-  );
+  const fetchChild = useCallback(async (id: string) => {
+    const userDoc = usersRef.doc(id);
+    const querySnapshot = await usersRef.where('parent', '==', userDoc).get();
+    let childData: FirebaseFirestoreTypes.DocumentData[] =
+      querySnapshot.docs.map(doc => doc.data());
+    setChild(childData);
+    console.log('child', childData);
+  }, []);
 
   useEffect(() => {
     const fetchRef = () => {
       if (user?.parent) {
         fetchParent(user?.parent);
       }
-      if (user?.child) {
-        console.log(user?.child);
-        fetchChild(user?.child);
-      }
+      fetchChild(user?.id);
     };
 
     fetchRef();
-  }, [fetchChild, fetchParent, user?.child, user?.parent]);
-
-  console.log('parent', parent);
-  console.log('child', child);
+  }, [fetchChild, fetchParent, user?.id, user?.parent]);
 
   const renderUser = (
     item: FirebaseFirestoreTypes.DocumentData | undefined,
   ) => {
+    console.log('inside renderUser', item);
     return (
       <View style={styles.linkContainer}>
         <TouchableOpacity
@@ -70,16 +70,26 @@ const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
 
   const renderChildView = () => {
     if (child) {
+      console.log('inside renderchildview', child);
       return child.map(item => {
         return renderUser(item);
       });
     }
   };
 
+  const onEdit = () => {
+    navigation.navigate('Add User', {user});
+  };
+
   return (
     <ScrollView>
       <View style={styles.userInfoContainer}>
-        <Image source={ProfileImage} style={styles.profileImage} />
+        <View>
+          <Image source={ProfileImage} style={styles.profileImage} />
+          <TouchableOpacity style={styles.editBtn} onPress={onEdit}>
+            <FontAwesome name={'edit'} size={30} />
+          </TouchableOpacity>
+        </View>
         <View style={styles.nameContainer}>
           <Text
             style={
@@ -112,7 +122,7 @@ const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
           Parents
         </Text>
 
-        {user?.parent ? (
+        {parent?.length ? (
           renderUser(parent)
         ) : (
           <Text style={[styles.regularText, styles.center]}>
@@ -128,7 +138,7 @@ const UserDetailScreen = ({navigation, route}: UserDetailScreenProps) => {
           Children
         </Text>
 
-        {user?.child?.length > 0 ? (
+        {child?.length ? (
           renderChildView()
         ) : (
           <Text style={[styles.regularText, styles.center]}>
@@ -202,6 +212,11 @@ const styles = StyleSheet.create({
   },
   marginBottom: {
     marginBottom: 5,
+  },
+  editBtn: {
+    position: 'absolute',
+    bottom: 0,
+    right: 20,
   },
 });
 

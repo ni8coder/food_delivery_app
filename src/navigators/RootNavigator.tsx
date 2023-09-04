@@ -9,6 +9,7 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {signIn, signOut} from 'feature/auth/authSlice';
 import NotificationHelper from 'helpers/NotificationHelper';
 import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
+import {KeyboardProvider} from 'react-native-keyboard-controller';
 
 const RootStack = createNativeStackNavigator();
 
@@ -46,7 +47,7 @@ const RootNavigator = () => {
     return () => {
       NotificationHelper.clearListeners();
     };
-  }, []);
+  }, [onNotificationTap]);
 
   if (isLoading) {
     return null;

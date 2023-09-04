@@ -18,6 +18,7 @@ import SocialLogin from '../components/SocialLogin';
 import auth from '@react-native-firebase/auth';
 import colors from 'theme/colors';
 import {fontFamily, fontSize} from 'theme/fonts';
+import {KeyboardProvider} from 'react-native-keyboard-controller';
 
 const SignupScreen = ({navigation}: SignupScreenProps) => {
   const [email, setEmail] = React.useState('');
