@@ -42,7 +42,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name="ProfileNav"
         component={ProfileNavigator}
-        options={{title: 'Profile'}}
+        options={{title: 'Profile', tabBarHideOnKeyboard: true}}
       />
     </Tab.Navigator>
   );

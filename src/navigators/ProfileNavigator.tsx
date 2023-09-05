@@ -17,7 +17,7 @@ type ProfileStackParamList = {
   'Card Detail': {cardNumber: string; cvv: string};
   User: undefined;
   'User Detail': {user: FirebaseFirestoreTypes.DocumentData | undefined};
-  'Add User': {userId: string} | undefined;
+  'Add User': {user: FirebaseFirestoreTypes.DocumentData | undefined};
 };
 
 const ProfileStack = createNativeStackNavigator<ProfileStackParamList>();

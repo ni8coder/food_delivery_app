@@ -17,7 +17,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   whitelist: [], //only persist these reducers
-  blacklist: [], //do not persist these reducers
+  blacklist: ['user'], //do not persist these reducers
 };
 
 //create a persist reducer

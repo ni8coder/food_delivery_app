@@ -1,44 +1,46 @@
 import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import firestore, {
-  FirebaseFirestoreTypes,
-} from '@react-native-firebase/firestore';
+import React, {useEffect} from 'react';
+import firestore from '@react-native-firebase/firestore';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from 'theme/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {UserScreenProps} from 'navigators/ProfileNavigator';
-
-type FirebaseDocCollection =
-  FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>[];
+import {User, setUsers} from 'feature/users/userSlice';
+import {useAppDispatch, useAppSelector} from 'app/hooks';
+import {fontFamily, fontSize} from 'theme/fonts';
 
 const ItemSeparator = () => {
   return <View style={styles.separator} />;
 };
 
+const usersRef = firestore().collection('users');
+
 const UserScreen = ({navigation}: UserScreenProps) => {
-  const [users, setUsers] = useState<FirebaseDocCollection>([]);
-
-  // useEffect(() => {
-  //   const getAllUsers = async () => {
-  //     const allUsers = (await firestore().collection('users').get()).docs;
-  //     setUsers(allUsers);
-  //     console.log('all users', allUsers);
-  //   };
-
-  //   getAllUsers();
-  // }, []);
+  const users = useAppSelector(state => state.user.users);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const subscriber = firestore()
-      .collection('users')
-      .onSnapshot(querySnapshot => {
-        console.log('Realtime User data: ', querySnapshot.docs);
-        setUsers(querySnapshot.docs);
+    const subscriber = usersRef.onSnapshot(querySnapshot => {
+      // console.log('Realtime User data: ', querySnapshot.docs);
+      let jsonData: User[] = querySnapshot.docs.map(doc => {
+        let user = doc.data();
+        return {
+          id: doc.id,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          address: user.address,
+          phone: user.phone,
+          email: user.email,
+          parent: user?.parent,
+        };
       });
+      // console.log('jsonData', jsonData);
+      dispatch(setUsers(jsonData));
+    });
 
     // Stop listening for updates when no longer required
     return () => subscriber();
-  }, []);
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -51,11 +53,12 @@ const UserScreen = ({navigation}: UserScreenProps) => {
             <TouchableOpacity
               style={styles.linkView}
               onPress={() => {
-                navigation.navigate('User Detail', {user: item.data()});
+                navigation.navigate('User Detail', {user: item});
               }}>
-              <Text>{`${item.data().first_name} ${
-                item.data().last_name
-              }`}</Text>
+              <Text
+                style={
+                  styles.title
+                }>{`${item.first_name} ${item.last_name}`}</Text>
               <FontAwesome name={'angle-right'} size={20} />
             </TouchableOpacity>
           );
@@ -105,6 +108,11 @@ const styles = StyleSheet.create({
   linkContainer: {
     gap: 20,
     marginBottom: 80,
+  },
+  title: {
+    fontFamily: fontFamily.poppinsBold,
+    fontSize: fontSize.normal,
+    color: colors.black,
   },
 });
 
