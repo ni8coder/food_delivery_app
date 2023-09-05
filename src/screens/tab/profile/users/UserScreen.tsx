@@ -1,5 +1,5 @@
 import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from 'theme/colors';
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: fontFamily.poppinsBold,
     fontSize: fontSize.normal,
+    color: colors.black,
   },
 });
 
