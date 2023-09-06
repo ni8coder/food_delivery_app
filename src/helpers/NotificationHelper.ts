@@ -1,6 +1,8 @@
 import messaging, {
   FirebaseMessagingTypes,
 } from '@react-native-firebase/messaging';
+import notifee from '@notifee/react-native';
+import {v4 as uuidv4} from 'uuid';
 
 type notificationCallback = (
   remoteMessage: FirebaseMessagingTypes.RemoteMessage,
@@ -19,6 +21,8 @@ class NotificationHelper {
     if (enabled) {
       console.log('Authorization status:', authStatus);
     }
+    // Request permissions (required for iOS)
+    // await notifee.requestPermission();
   };
 
   getToken = async () => {
@@ -31,6 +35,7 @@ class NotificationHelper {
     //When the application is running, but in the foreground
     this.onMessageListener = messaging().onMessage(async remoteMessage => {
       console.log('Notification in the foreground', remoteMessage);
+      this.displayLocalNotification(remoteMessage);
     });
 
     //When the application is running, but in the background.
@@ -69,6 +74,27 @@ class NotificationHelper {
   clearListeners = () => {
     this.onMessageListener();
     this.onNotificationOpenedAppListener();
+  };
+
+  displayLocalNotification = async (
+    message: FirebaseMessagingTypes.RemoteMessage,
+  ) => {
+    // Create a channel (required for Android)
+    const channelId = await notifee.createChannel({
+      id: uuidv4(),
+      name: 'Default Channel',
+    });
+
+    const notificationId = await notifee.displayNotification({
+      id: uuidv4(),
+      title: message.notification?.title,
+      body: message.notification?.body,
+      android: {
+        channelId,
+      },
+    });
+
+    console.log('Notification ID:', notificationId);
   };
 }
 

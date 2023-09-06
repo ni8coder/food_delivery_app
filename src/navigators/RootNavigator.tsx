@@ -10,6 +10,7 @@ import {signIn, signOut} from 'feature/auth/authSlice';
 import NotificationHelper from 'helpers/NotificationHelper';
 import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
+import notifee, {EventType} from '@notifee/react-native';
 
 const RootStack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ const RootNavigator = () => {
   );
 
   useEffect(() => {
+    NotificationHelper.requestUserPermission();
     NotificationHelper.getToken();
     NotificationHelper.registerMessageHandlers(onNotificationTap);
 
@@ -48,6 +50,19 @@ const RootNavigator = () => {
       NotificationHelper.clearListeners();
     };
   }, [onNotificationTap]);
+
+  useEffect(() => {
+    return notifee.onForegroundEvent(({type, detail}) => {
+      switch (type) {
+        case EventType.DISMISSED:
+          console.log('User dismissed notification', detail.notification);
+          break;
+        case EventType.PRESS:
+          console.log('User pressed notification', detail.notification);
+          break;
+      }
+    });
+  }, []);
 
   if (isLoading) {
     return null;
