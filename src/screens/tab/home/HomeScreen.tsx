@@ -13,6 +13,7 @@ import Group4 from '@assets/images/home/Group-4.png';
 import Food from '@assets/images/home/food-image.png';
 import Star from '@assets/images/home/star.png';
 import {SvgProps} from 'react-native-svg';
+import NewModuleButton from 'controls/NewModuleButton';
 
 const SNACKS = [
   {SVGImage: CoffeeCup, title: 'Drink'},
@@ -67,6 +68,7 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
+      <NewModuleButton />
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}>
