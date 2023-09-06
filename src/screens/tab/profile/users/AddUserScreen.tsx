@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
+  Button,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {fontFamily, fontSize} from 'theme/fonts';
@@ -17,6 +18,7 @@ import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {useAppSelector} from 'app/hooks';
 import {AddUserScreenProps} from 'navigators/ProfileNavigator';
+import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
 
 type DropdownItem = {
   label: string;
@@ -36,6 +38,77 @@ const AddUserScreen = ({navigation, route}: AddUserScreenProps) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const users = useAppSelector(state => state.user.users);
+
+  async function onDisplayNotification() {
+    // Request permissions (required for iOS)
+    await notifee.requestPermission();
+
+    // Create a channel (required for Android)
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+    });
+
+    const notificationId = await notifee.displayNotification({
+      id: '123',
+      title: 'Notification Title',
+      body: 'Main body content of the notification',
+      android: {
+        channelId,
+      },
+    });
+    console.log('notificationId', notificationId);
+
+    // Sometime later...
+    setTimeout(async () => {
+      await notifee.displayNotification({
+        id: notificationId,
+        title: 'Updated Notification Title',
+        body: 'Updated main body content of the notification',
+        android: {
+          channelId,
+        },
+      });
+
+      await notifee.displayNotification({
+        id: '124',
+        title: 'New Notification Title',
+        body: 'New main body content of the notification',
+        android: {
+          channelId,
+        },
+      });
+    }, 5000);
+
+    // Sometime later...
+    setTimeout(async () => {
+      await notifee.cancelNotification(notificationId);
+    }, 10000);
+  }
+
+  async function onCreateTriggerNotification() {
+    const date = new Date(Date.now());
+    date.setHours(21);
+    date.setMinutes(21);
+
+    // Create a time-based trigger
+    const trigger: TimestampTrigger = {
+      type: TriggerType.TIMESTAMP,
+      timestamp: date.getTime(), // fire at 11:10am (10 minutes before meeting)
+    };
+
+    // Create a trigger notification
+    await notifee.createTriggerNotification(
+      {
+        title: 'Meeting with Jane',
+        body: 'Today at 11:20am',
+        android: {
+          channelId: 'your-channel-id',
+        },
+      },
+      trigger,
+    );
+  }
 
   useEffect(() => {
     if (users.length) {
@@ -99,6 +172,10 @@ const AddUserScreen = ({navigation, route}: AddUserScreenProps) => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.innerContainer}>
+        <Button
+          title="Display Notification"
+          onPress={() => onDisplayNotification()}
+        />
         <Text style={styles.titleStyle}>Add New User</Text>
         <TextInput
           placeholder="Enter First Name"
