@@ -4,11 +4,21 @@ import {Button} from 'react-native';
 
 const NewModuleButton = () => {
   const onPress = async () => {
-    console.log('We will invoke the native module here!');
+    // console.log('We will invoke the native module here!');
+    // CalendarModule.createCalendarEvent(
+    //   'Party',
+    //   '04-12-2020',
+    //   error => {
+    //     console.log('Error creating calendar event', error);
+    //   },
+    //   eventId => {
+    //     console.log(`Created a new event with id ${eventId}`);
+    //   },
+    // );
     try {
       const eventId = await CalendarModule.createCalendarEvent(
-        'testName',
-        'testLocation',
+        'Party',
+        '04-12-2020',
       );
       console.log('event id', eventId);
     } catch (error) {
