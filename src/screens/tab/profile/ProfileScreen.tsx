@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   StyleSheet,
   Image,
   ScrollView,
@@ -16,6 +15,7 @@ import {useAppDispatch} from '@app/hooks';
 import {signOut} from '@feature/auth/authSlice';
 import {fontFamily, fontSize} from '@theme/fonts';
 import auth from '@react-native-firebase/auth';
+import CText from 'components/CText';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
   const dispatch = useAppDispatch();
@@ -42,8 +42,8 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
         <View style={styles.imageContainer}>
           <Image source={ProfileImage} style={styles.profileImage} />
           <View style={styles.nameContainer}>
-            <Text style={styles.nameText}>Naznin</Text>
-            <Text style={styles.phoneNumber}>+0800101111</Text>
+            <CText style={styles.nameCText}>Naznin</CText>
+            <CText style={styles.phoneNumber}>+0800101111</CText>
           </View>
         </View>
 
@@ -51,29 +51,33 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
           <TouchableOpacity
             style={styles.linkView}
             onPress={() => navigation.navigate('User')}>
-            <Text>Users</Text>
+            <CText>Users</CText>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.linkView}>
-            <Text>Change Password</Text>
+          <TouchableOpacity
+            style={styles.linkView}
+            onPress={() => navigation.navigate('Camera')}>
+            <CText>Camera</CText>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.linkView}
             onPress={() => navigation.navigate('Payment Method')}>
-            <Text>Payment Settings</Text>
+            <CText>Payment Settings</CText>
+            <FontAwesome name={'angle-right'} size={20} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.linkView}
+            onPress={() => navigation.navigate('QR Scanner')}>
+            <CText>QR Code Reader</CText>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.linkView}>
-            <Text>My Voucher</Text>
+            <CText>About Us</CText>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.linkView}>
-            <Text>About Us</Text>
-            <FontAwesome name={'angle-right'} size={20} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.linkView}>
-            <Text>Contact Us</Text>
+            <CText>Contact Us</CText>
             <FontAwesome name={'angle-right'} size={20} />
           </TouchableOpacity>
         </View>
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  nameText: {
+  nameCText: {
     fontFamily: fontFamily.poppinsBold,
     fontSize: fontSize.medium,
   },
