@@ -11,6 +11,7 @@ import NotificationHelper from 'helpers/NotificationHelper';
 import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
 import notifee, {EventType} from '@notifee/react-native';
+import AppNavigator from './AppNavigator';
 
 const RootStack = createNativeStackNavigator();
 
@@ -76,7 +77,7 @@ const RootNavigator = () => {
     //   return <RootStack.Screen name="Intro" component={IntroScreen} />;
     // }
     else {
-      return <RootStack.Screen name="Tabs" component={TabNavigator} />;
+      return <RootStack.Screen name="App" component={AppNavigator} />;
     }
   };
 

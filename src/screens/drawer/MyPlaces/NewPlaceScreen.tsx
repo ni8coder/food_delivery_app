@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const TermsScreen = () => {
+const NewPlaceScreen = () => {
   return (
     <View>
-      <Text>TermsScreen</Text>
+      <Text>NewPlaceScreen</Text>
     </View>
   );
 };
 
-export default TermsScreen;
+export default NewPlaceScreen;

@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, StyleProp, TextStyle} from 'react-native';
-import React, {Children} from 'react';
+import {Text, StyleSheet, StyleProp, TextStyle} from 'react-native';
+import React from 'react';
 import {fontFamily, fontSize} from 'theme/fonts';
 import colors from 'theme/colors';
 

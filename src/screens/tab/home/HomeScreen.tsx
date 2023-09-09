@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import CoffeeCup from '@assets/images/home/coffee-cup.svg';
@@ -68,7 +69,12 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
-      <NewModuleButton />
+      {/* <NewModuleButton /> */}
+      <TouchableOpacity
+        style={{paddingVertical: 10}}
+        onPress={() => navigation.openDrawer()}>
+        <Feather name="menu" size={25} color="rgba(0,0,0,0.5)" />
+      </TouchableOpacity>
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}>
