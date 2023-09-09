@@ -65,7 +65,7 @@ const UserScreen = ({navigation}: UserScreenProps) => {
         }}
       />
       <TouchableOpacity
-        style={styles.addUser}
+        style={styles.addBtn}
         onPress={() => {
           navigation.navigate('Add User');
         }}>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
   },
-  addUser: {
+  addBtn: {
     position: 'absolute',
     bottom: 15,
     right: 15,

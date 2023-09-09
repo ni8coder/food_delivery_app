@@ -1,10 +1,32 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const initialState = {
+type User = {
+  displayName: string | null;
+  email: string;
+  emailVerified: boolean;
+  isAnonymous: boolean;
+  metadata: object;
+  multiFactor: object;
+  phoneNumber: string | null;
+  photoURL: string | null;
+  providerData: [];
+  providerId: string;
+  tenantId: string | null;
+  uid: string;
+};
+
+type InitialStateType = {
+  isLoading: boolean;
+  isLoggedIn: boolean;
+  isIntroShown: boolean;
+  user: User | null;
+};
+
+const initialState: InitialStateType = {
   isLoading: true,
   isLoggedIn: false,
-  user: {},
   isIntroShown: false,
+  user: null,
 };
 
 const authSlice = createSlice({
@@ -25,7 +47,7 @@ const authSlice = createSlice({
     signOut: state => {
       state.isLoggedIn = false;
       state.isLoading = false;
-      state.user = {};
+      state.user = null;
     },
     introShown: state => {
       state.isIntroShown = true;
