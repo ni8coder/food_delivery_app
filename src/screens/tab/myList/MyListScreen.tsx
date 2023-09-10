@@ -6,17 +6,19 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import Map, {MapViewHandle} from './Map';
 import LocationHelper from 'helpers/LocationHelper';
 import {RESULTS} from 'react-native-permissions';
 import {GeoError, GeoPosition} from 'react-native-geolocation-service';
 import colors from 'theme/colors';
 import CustomButton from 'components/CustomButton';
+import Map, {MapViewHandle} from 'controls/Map';
+import CTextInput, {CTextInputRef} from 'components/CTextInput';
 
 const MyListScreen = () => {
   const [searchVal, setSearchVal] = useState('');
   const mapRef = useRef<MapViewHandle>(null);
   const searchInputRef = useRef<TextInput>(null!);
+  const customInputRef = useRef<CTextInputRef>(null!);
 
   const trackUserLocationSuccess = useCallback((position: GeoPosition) => {
     console.log('success called');

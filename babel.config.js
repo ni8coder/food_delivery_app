@@ -18,9 +18,10 @@ module.exports = {
           '@config': './src/config',
           '@utils': './src/utils',
           '@helpers': './src/helpers',
+          '@locales': './src/locales',
         },
       },
     ],
-    ['react-native-reanimated/plugin'],
+    'react-native-reanimated/plugin',
   ],
 };

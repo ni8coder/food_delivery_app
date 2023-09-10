@@ -34,6 +34,10 @@
 		C8A6C89E2AA1284C00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */; };
 		C8A6C8A02AA1285B00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */; };
 		C8A6C8A22AA1286400C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */; };
+		C8E7EF502AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
+		C8E7EF512AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
+		C8E7EF522AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
+		C8E7EF532AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
 		E1577C0ED95843E3BCF96046 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */; };
 		F4D0E88D0A9A49569B145E14 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -100,6 +104,8 @@
 		C8BB009D2A7E580B00F07296 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		C8BB009E2A7E580B00F07296 /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		C8BB009F2A7E580B00F07296 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		C8E7EF4E2AA9DB1600ABA0F6 /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
+		C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
 		C8F87B632A98011A0085EAA8 /* food_delivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = food_delivery.entitlements; path = food_delivery/food_delivery.entitlements; sourceTree = "<group>"; };
 		CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		D54E30539BB31B882C9A4F81 /* Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_dev/Pods-food_deliveryCommonPods-food_delivery_dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C8E7EF4E2AA9DB1600ABA0F6 /* RCTCalendarModule.h */,
+				C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */,
 			);
 			name = food_delivery;
 			sourceTree = "<group>";
@@ -830,6 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* food_deliveryTests.m in Sources */,
+				C8E7EF512AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E7EF502AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -846,6 +856,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E7EF522AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */,
 				C81305D52AA105F100E5F167 /* AppDelegate.mm in Sources */,
 				C81305D62AA105F100E5F167 /* main.m in Sources */,
 			);
@@ -855,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E7EF532AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */,
 				C81305ED2AA105F600E5F167 /* AppDelegate.mm in Sources */,
 				C81305EE2AA105F600E5F167 /* main.m in Sources */,
 			);
@@ -1009,7 +1021,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1090,7 +1102,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

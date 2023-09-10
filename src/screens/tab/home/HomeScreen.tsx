@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import CoffeeCup from '@assets/images/home/coffee-cup.svg';
@@ -13,6 +14,8 @@ import Group4 from '@assets/images/home/Group-4.png';
 import Food from '@assets/images/home/food-image.png';
 import Star from '@assets/images/home/star.png';
 import {SvgProps} from 'react-native-svg';
+import NewModuleButton from 'controls/NewModuleButton';
+import {useTranslation} from 'react-i18next';
 
 const SNACKS = [
   {SVGImage: CoffeeCup, title: 'Drink'},
@@ -43,6 +46,8 @@ const SnackItem = (props: SnackItemProps) => {
 const NEARME_DATA = [{}, {}, {}, {}, {}, {}];
 
 const HomeScreen = ({navigation}) => {
+  const {t} = useTranslation();
+
   const RenderItem = ({item}) => {
     return (
       <View style={{flexDirection: 'row', gap: 15}}>
@@ -67,6 +72,12 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
+      {/* <NewModuleButton /> */}
+      <TouchableOpacity
+        style={{paddingVertical: 10}}
+        onPress={() => navigation.openDrawer()}>
+        <Feather name="menu" size={25} color="rgba(0,0,0,0.5)" />
+      </TouchableOpacity>
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}>
@@ -92,7 +103,8 @@ const HomeScreen = ({navigation}) => {
 
         <View style={styles.foodMenuView}>
           <Text style={{fontFamily: 'Poppins-Bold', fontSize: 18}}>
-            Food Menu
+            {/* Food Menu */}
+            {t('Drink')}
           </Text>
           <Text style={{fontFamily: 'Roboto-Regular', fontSize: 12}}>
             View all

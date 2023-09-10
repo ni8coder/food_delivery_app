@@ -15,6 +15,8 @@ import {store, persistor} from './app/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {NavigationContainer} from '@react-navigation/native';
+import 'intl-pluralrules';
+import 'helpers/i18nHelper';
 
 function App() {
   return (

@@ -1,64 +1,59 @@
 import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import colors from 'theme/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {UserScreenProps} from 'navigators/ProfileNavigator';
-import {User, setUsers} from 'feature/users/userSlice';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
 import {fontFamily, fontSize} from 'theme/fonts';
+import {MyPlacesScreenProps} from 'navigators/LocationNavigator';
+import {Place, setPlaces} from 'feature/places/placesSlice';
 
 const ItemSeparator = () => {
   return <View style={styles.separator} />;
 };
 
-const usersRef = firestore().collection('users');
+const placesRef = firestore().collection('UserMyPlaces');
 
-const UserScreen = ({navigation}: UserScreenProps) => {
-  const users = useAppSelector(state => state.user.users);
+const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
+  const authUser = useAppSelector(state => state.auth.user);
+  const uid = authUser?.uid;
+  const places = useAppSelector(state => state.places.places);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const subscriber = usersRef.onSnapshot(querySnapshot => {
-      // console.log('Realtime User data: ', querySnapshot.docs);
-      let jsonData: User[] = querySnapshot.docs.map(doc => {
-        let user = doc.data();
-        return {
-          id: doc.id,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          address: user.address,
-          phone: user.phone,
-          email: user.email,
-          parent: user?.parent,
-        };
+    const subscriber = placesRef
+      .where('userId', '==', uid)
+      .onSnapshot(querySnapshot => {
+        // console.log('Realtime Places data: ', querySnapshot.docs);
+        let jsonData: Place[] = querySnapshot.docs.map(doc => {
+          let place = doc.data();
+          return {
+            latitude: place.latitude,
+            longitude: place.longitude,
+            placeName: place.placeName,
+            userName: place.userName,
+            userId: place.userId,
+          };
+        });
+        // console.log('jsonData', jsonData);
+        dispatch(setPlaces(jsonData));
       });
-      // console.log('jsonData', jsonData);
-      dispatch(setUsers(jsonData));
-    });
 
     // Stop listening for updates when no longer required
     return () => subscriber();
-  }, [dispatch]);
+  }, [dispatch, uid]);
 
   return (
     <View style={styles.container}>
       <FlatList
         style={styles.linkContainer}
-        data={users}
+        data={places}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity
-              style={styles.linkView}
-              onPress={() => {
-                navigation.navigate('User Detail', {user: item});
-              }}>
-              <Text
-                style={
-                  styles.title
-                }>{`${item.first_name} ${item.last_name}`}</Text>
+            <TouchableOpacity style={styles.linkView}>
+              <Text style={styles.title}>{`${item.placeName}`}</Text>
               <FontAwesome name={'angle-right'} size={20} />
             </TouchableOpacity>
           );
@@ -67,9 +62,9 @@ const UserScreen = ({navigation}: UserScreenProps) => {
       <TouchableOpacity
         style={styles.addBtn}
         onPress={() => {
-          navigation.navigate('Add User');
+          navigation.navigate('Add New Place');
         }}>
-        <AntDesign name={'adduser'} size={35} color={colors.primary} />
+        <MaterialIcons name={'add-location'} size={35} color={colors.primary} />
       </TouchableOpacity>
     </View>
   );
@@ -116,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserScreen;
+export default MyPlacesScreen;

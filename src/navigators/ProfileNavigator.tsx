@@ -10,12 +10,16 @@ import UserScreen from 'screens/tab/profile/users/UserScreen';
 import UserDetailScreen from 'screens/tab/profile/users/UserDetailScreen';
 import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
 import AddUserScreen from 'screens/tab/profile/users/AddUserScreen';
+import CameraScreen from 'screens/tab/profile/camera/CameraScreen';
+import QRScanner from 'screens/tab/profile/qr/QRScanner';
 
 type ProfileStackParamList = {
   Profile: undefined;
   'Payment Method': {post: string} | undefined;
   'Card Detail': {cardNumber: string; cvv: string};
   User: undefined;
+  Camera: undefined;
+  'QR Scanner': undefined;
   'User Detail': {user: FirebaseFirestoreTypes.DocumentData | undefined};
   'Add User': {user: FirebaseFirestoreTypes.DocumentData | undefined};
 };
@@ -38,6 +42,8 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen name="User" component={UserScreen} />
       <ProfileStack.Screen name="User Detail" component={UserDetailScreen} />
       <ProfileStack.Screen name="Add User" component={AddUserScreen} />
+      <ProfileStack.Screen name="Camera" component={CameraScreen} />
+      <ProfileStack.Screen name="QR Scanner" component={QRScanner} />
     </ProfileStack.Navigator>
   );
 };
