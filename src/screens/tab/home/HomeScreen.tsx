@@ -15,6 +15,7 @@ import Food from '@assets/images/home/food-image.png';
 import Star from '@assets/images/home/star.png';
 import {SvgProps} from 'react-native-svg';
 import NewModuleButton from 'controls/NewModuleButton';
+import {useTranslation} from 'react-i18next';
 
 const SNACKS = [
   {SVGImage: CoffeeCup, title: 'Drink'},
@@ -45,6 +46,8 @@ const SnackItem = (props: SnackItemProps) => {
 const NEARME_DATA = [{}, {}, {}, {}, {}, {}];
 
 const HomeScreen = ({navigation}) => {
+  const {t} = useTranslation();
+
   const RenderItem = ({item}) => {
     return (
       <View style={{flexDirection: 'row', gap: 15}}>
@@ -100,7 +103,8 @@ const HomeScreen = ({navigation}) => {
 
         <View style={styles.foodMenuView}>
           <Text style={{fontFamily: 'Poppins-Bold', fontSize: 18}}>
-            Food Menu
+            {/* Food Menu */}
+            {t('Drink')}
           </Text>
           <Text style={{fontFamily: 'Roboto-Regular', fontSize: 12}}>
             View all

@@ -11,8 +11,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CText from 'components/CText';
 import {fontSize} from 'theme/fonts';
+import {useTranslation} from 'react-i18next';
+import colors from 'theme/colors';
 
 const CustomDrawer = (props: DrawerContentComponentProps) => {
+  const {i18n} = useTranslation();
   //   console.log('custom drawer rendered');
   const handleLogout = async () => {
     auth()
@@ -33,13 +36,31 @@ const CustomDrawer = (props: DrawerContentComponentProps) => {
         </View>
       </DrawerContentScrollView>
       <View style={styles.customContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity
+          style={[styles.btn]}
+          disabled={i18n.resolvedLanguage === 'en'}
+          onPress={() => i18n.changeLanguage('en')}>
           <MaterialIcons name="language" size={22} />
-          <CText style={styles.btnText}>English</CText>
+          <CText
+            style={[
+              styles.btnText,
+              {opacity: i18n.resolvedLanguage === 'en' ? 0.4 : 1},
+            ]}>
+            English
+          </CText>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity
+          style={styles.btn}
+          disabled={i18n.resolvedLanguage === 'fr'}
+          onPress={() => i18n.changeLanguage('fr')}>
           <MaterialIcons name="language" size={22} />
-          <CText style={styles.btnText}>Spanish</CText>
+          <CText
+            style={[
+              styles.btnText,
+              {opacity: i18n.resolvedLanguage === 'fr' ? 0.4 : 1},
+            ]}>
+            French
+          </CText>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={handleLogout}>
           <AntDesign name="logout" size={22} />

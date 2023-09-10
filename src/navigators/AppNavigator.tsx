@@ -1,12 +1,14 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import TabNavigator from './TabNavigator';
-import FontAwesome from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {fontFamily, fontSize} from 'theme/fonts';
 import CustomDrawer from './CustomDrawer';
 import Entypo from 'react-native-vector-icons/Entypo';
 import colors from 'theme/colors';
 import LocationNavigator from './LocationNavigator';
+import LocaleScreen from 'screens/drawer/Locales/LocaleScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,6 +35,8 @@ const AppNavigator = () => {
             return <FontAwesome name="home" size={size} color={color} />;
           } else if (route.name === 'My Places') {
             return <Entypo name="location-pin" size={size} color={color} />;
+          } else if (route.name === 'Locale') {
+            return <MaterialIcons name="language" size={size} color={color} />;
           }
         },
       })}>
@@ -44,6 +48,11 @@ const AppNavigator = () => {
         }}
       />
       <Drawer.Screen name="My Places" component={LocationNavigator} />
+      <Drawer.Screen
+        name="Locale"
+        component={LocaleScreen}
+        options={{headerShown: true}}
+      />
     </Drawer.Navigator>
   );
 };

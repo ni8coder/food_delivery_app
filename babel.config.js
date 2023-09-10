@@ -18,6 +18,7 @@ module.exports = {
           '@config': './src/config',
           '@utils': './src/utils',
           '@helpers': './src/helpers',
+          '@locales': './src/locales',
         },
       },
     ],

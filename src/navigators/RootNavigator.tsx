@@ -12,15 +12,28 @@ import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
 import notifee, {EventType} from '@notifee/react-native';
 import AppNavigator from './AppNavigator';
+import {useTranslation} from 'react-i18next';
 
 const RootStack = createNativeStackNavigator();
 
 const RootNavigator = () => {
+  const {i18n} = useTranslation();
   const {isIntroShown, isLoggedIn, isLoading} = useAppSelector(
     state => state.auth,
   );
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
+
+  useEffect(() => {
+    i18n.on('languageChanged', function (lng) {
+      // moment.locale(lng);
+      console.log('language changed', lng);
+    });
+
+    return () => {
+      i18n.off('languageChanged');
+    };
+  }, [i18n]);
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(user => {
