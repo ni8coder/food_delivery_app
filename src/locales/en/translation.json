@@ -1,6 +1,5 @@
 {
-    "Welcome to React": "Welcome to React and react-i18next",
-    "Drink": "Coke drinkk",
+    "Drink": "Coke drink",
     "locale": "Locale Screen",
     "count_one": "{{count}} item",
     "count_other": "{{count}} items",

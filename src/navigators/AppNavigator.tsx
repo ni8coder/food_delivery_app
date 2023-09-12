@@ -33,7 +33,7 @@ const AppNavigator = () => {
         drawerIcon: ({size, color}) => {
           if (route.name === 'Tabs') {
             return <FontAwesome name="home" size={size} color={color} />;
-          } else if (route.name === 'My Places') {
+          } else if (route.name === 'Places') {
             return <Entypo name="location-pin" size={size} color={color} />;
           } else if (route.name === 'Locale') {
             return <MaterialIcons name="language" size={size} color={color} />;
@@ -47,7 +47,7 @@ const AppNavigator = () => {
           title: 'Home',
         }}
       />
-      <Drawer.Screen name="My Places" component={LocationNavigator} />
+      <Drawer.Screen name="Places" component={LocationNavigator} />
       <Drawer.Screen
         name="Locale"
         component={LocaleScreen}

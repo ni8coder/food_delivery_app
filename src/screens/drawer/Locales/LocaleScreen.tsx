@@ -11,7 +11,7 @@ const LocaleScreen = () => {
     <CustomSafeAreaView style={styles.container}>
       <CText style={{fontSize: fontSize.medium}}>{t('locale')}</CText>
       <CText style={{fontSize: fontSize.medium}}>
-        {t('count', {count: 2})}
+        {t('count', {count: 1})}
       </CText>
       <CText style={{fontSize: fontSize.medium}}>
         {t('intlNumber', {val: 1000})}

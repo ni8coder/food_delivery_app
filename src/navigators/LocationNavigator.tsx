@@ -6,10 +6,11 @@ import {
 import MyPlacesScreen from 'screens/drawer/MyPlaces/MyPlacesScreen';
 import NewPlaceScreen from 'screens/drawer/MyPlaces/NewPlaceScreen';
 import DrawerBtn from 'components/DrawerBtn';
+import {LatLng} from 'react-native-maps';
 
 type LocationStackParamList = {
   'My Places': undefined;
-  'Add New Place': undefined;
+  'Add New Place': LatLng | undefined;
 };
 
 const LocationStack = createNativeStackNavigator<LocationStackParamList>();

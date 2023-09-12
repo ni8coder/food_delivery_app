@@ -3,6 +3,7 @@ declare module 'react-native-config' {
     BASE_URL?: string;
     ENVIRONMENT?: string;
     APP_NAME?: string;
+    MAPS_API_KEY?: string;
   }
 
   export const Config: NativeConfig;

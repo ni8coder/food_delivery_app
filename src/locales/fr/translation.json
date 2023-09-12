@@ -1,8 +1,7 @@
 {
-    "Welcome to React": "Welcome to React and react-i18next",
-    "Drink": "French de coke",
+    "Drink": "Boisson au Coca",
     "locale": "Écran Paramètres régionaux",
     "count_one": "{{count}} article",
     "count_other": "{{count}} articles",
-    "intlNumber": "Some {{val, number}}"
+    "intlNumber": "Quelques {{val, number}}"
 }

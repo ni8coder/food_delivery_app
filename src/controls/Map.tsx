@@ -1,5 +1,11 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React, {Ref, forwardRef, useImperativeHandle, useRef} from 'react';
+import React, {
+  Ref,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import MapView, {
   LatLng,
   Marker,
@@ -24,28 +30,43 @@ const MARKERS = [
   },
 ];
 
-type MapProps = {};
+type MapProps = {
+  onMapReady: () => void;
+};
+
+type CoordsType = {
+  latitude: number;
+  longitude: number;
+};
 
 const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
   const mapViewRef = useRef<MapView>(null);
+  const [coords, setCoords] = useState<CoordsType | null>(null);
 
   useImperativeHandle(ref, () => ({
-    animateToRegion: (region: Region, duration?: number) =>
-      mapViewRef.current?.animateToRegion(region, duration),
+    animateToRegion: (region: Region, duration?: number) => {
+      mapViewRef.current?.animateToRegion(region, duration);
+      setCoords({latitude: region.latitude, longitude: region.longitude});
+    },
   }));
 
   const renderMarkers = () => {
-    return MARKERS.map((marker, idx) => {
+    if (coords) {
       return (
-        <Marker
-          draggable
-          key={idx}
-          coordinate={marker.coordinates}
-          title={marker.title}
-          description={marker.description}
-        />
+        <Marker draggable coordinate={coords} title={''} description={''} />
       );
-    });
+    }
+    // return MARKERS.map((marker, idx) => {
+    //   return (
+    //     <Marker
+    //       draggable
+    //       key={idx}
+    //       coordinate={marker.coordinates}
+    //       title={marker.title}
+    //       description={marker.description}
+    //     />
+    //   );
+    // });
   };
 
   return (
@@ -53,6 +74,8 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
       provider={PROVIDER_GOOGLE}
       ref={mapViewRef}
       style={styles.mapView}
+      onMapReady={props.onMapReady}
+      // onMapLoaded={}
       showsMyLocationButton
       showsUserLocation
       initialRegion={{

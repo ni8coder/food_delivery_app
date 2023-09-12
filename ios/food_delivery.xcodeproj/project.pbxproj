@@ -31,9 +31,9 @@
 		C81305F42AA105F600E5F167 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599BA74BF8504AB4A070A924 /* Poppins-Bold.ttf */; };
 		C81305F52AA105F600E5F167 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3E1B178D724B019BACD5C9 /* Roboto-Regular.ttf */; };
 		C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67634E793148453784782506 /* Roboto-Bold.ttf */; };
-		C8A6C89E2AA1284C00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */; };
-		C8A6C8A02AA1285B00C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */; };
-		C8A6C8A22AA1286400C8718F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */; };
+		C8B8B9312AAF40DC006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9302AAF40DC006CB1BD /* GoogleService-Info.plist */; };
+		C8B8B9332AAF40E6006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9322AAF40E6006CB1BD /* GoogleService-Info.plist */; };
+		C8B8B9352AAF40F1006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */; };
 		C8E7EF502AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
 		C8E7EF512AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
 		C8E7EF522AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
@@ -82,9 +82,9 @@
 		C81305E82AA105F100E5F167 /* food_delivery-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-dev.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-dev.plist"; sourceTree = "<absolute>"; };
 		C81305FF2AA105F600E5F167 /* food_delivery_staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery_staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81306002AA105F600E5F167 /* food_delivery-staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-staging.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-staging.plist"; sourceTree = "<absolute>"; };
-		C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8B8B9302AAF40DC006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8B8B9322AAF40E6006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8BB008D2A7E580B00F07296 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		C8BB008E2A7E580B00F07296 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		C8BB008F2A7E580B00F07296 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 		C8A6C88E2AA117D300C8718F /* production */ = {
 			isa = PBXGroup;
 			children = (
-				C8A6C89D2AA1284C00C8718F /* GoogleService-Info.plist */,
+				C8B8B9302AAF40DC006CB1BD /* GoogleService-Info.plist */,
 			);
 			path = production;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 		C8A6C88F2AA117E000C8718F /* staging */ = {
 			isa = PBXGroup;
 			children = (
-				C8A6C89F2AA1285B00C8718F /* GoogleService-Info.plist */,
+				C8B8B9322AAF40E6006CB1BD /* GoogleService-Info.plist */,
 			);
 			path = staging;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 		C8A6C8902AA117EB00C8718F /* development */ = {
 			isa = PBXGroup;
 			children = (
-				C8A6C8A12AA1286400C8718F /* GoogleService-Info.plist */,
+				C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */,
 			);
 			path = development;
 			sourceTree = "<group>";
@@ -468,7 +468,7 @@
 				E1577C0ED95843E3BCF96046 /* Poppins-Bold.ttf in Resources */,
 				F4D0E88D0A9A49569B145E14 /* Roboto-Regular.ttf in Resources */,
 				68E16639D0E84AE48D1DC90B /* Roboto-Bold.ttf in Resources */,
-				C8A6C89E2AA1284C00C8718F /* GoogleService-Info.plist in Resources */,
+				C8B8B9312AAF40DC006CB1BD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +481,7 @@
 				C81305DC2AA105F100E5F167 /* Poppins-Bold.ttf in Resources */,
 				C81305DD2AA105F100E5F167 /* Roboto-Regular.ttf in Resources */,
 				C81305DE2AA105F100E5F167 /* Roboto-Bold.ttf in Resources */,
-				C8A6C8A22AA1286400C8718F /* GoogleService-Info.plist in Resources */,
+				C8B8B9352AAF40F1006CB1BD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +494,7 @@
 				C81305F42AA105F600E5F167 /* Poppins-Bold.ttf in Resources */,
 				C81305F52AA105F600E5F167 /* Roboto-Regular.ttf in Resources */,
 				C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */,
-				C8A6C8A02AA1285B00C8718F /* GoogleService-Info.plist in Resources */,
+				C8B8B9332AAF40E6006CB1BD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

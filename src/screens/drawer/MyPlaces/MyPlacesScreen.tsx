@@ -1,5 +1,5 @@
 import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import colors from 'theme/colors';
@@ -25,7 +25,7 @@ const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
     const subscriber = placesRef
       .where('userId', '==', uid)
       .onSnapshot(querySnapshot => {
-        // console.log('Realtime Places data: ', querySnapshot.docs);
+        console.log('Realtime Places data: ', querySnapshot.docs);
         let jsonData: Place[] = querySnapshot.docs.map(doc => {
           let place = doc.data();
           return {
@@ -52,7 +52,14 @@ const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity style={styles.linkView}>
+            <TouchableOpacity
+              style={styles.linkView}
+              onPress={() =>
+                navigation.navigate('Add New Place', {
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                })
+              }>
               <Text style={styles.title}>{`${item.placeName}`}</Text>
               <FontAwesome name={'angle-right'} size={20} />
             </TouchableOpacity>

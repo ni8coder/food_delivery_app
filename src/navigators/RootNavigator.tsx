@@ -37,7 +37,7 @@ const RootNavigator = () => {
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(user => {
-      console.log('User', user);
+      // console.log('User', user);
       if (user !== null) {
         dispatch(signIn(user?.toJSON()));
       } else {

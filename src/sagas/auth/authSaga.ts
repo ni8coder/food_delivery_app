@@ -43,13 +43,13 @@ function* authorize(email: string, password: string) {
 
 function* loginFlow() {
   while (true) {
-    console.log('before signin');
+    // console.log('before signin');
     const {payload} = yield take(takeSignIn);
     console.log(payload);
     const signInTask = yield fork(authorize, payload.email, payload.password);
 
     const action = yield take(signOut);
-    console.log('signout saga called');
+    // console.log('signout saga called');
     if (action === signOut) {
       yield cancel(signInTask);
     }
@@ -59,7 +59,7 @@ function* loginFlow() {
 
 function* signUpFlow() {
   while (true) {
-    console.log('before signup');
+    // console.log('before signup');
     let {payload} = yield take(takeSignUp);
     yield fork(createUser, payload.email, payload.password);
   }
