@@ -5,7 +5,7 @@ import colors from 'theme/colors';
 
 interface CTextProps {
   style?: StyleProp<TextStyle>;
-  children: string;
+  children: string | React.ReactNode;
 }
 
 const CText = ({style, children}: CTextProps) => {

@@ -73,11 +73,11 @@ const HomeScreen = ({navigation}) => {
   return (
     <CustomSafeAreaView style={styles.container}>
       {/* <NewModuleButton /> */}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={{paddingVertical: 10}}
         onPress={() => navigation.openDrawer()}>
         <Feather name="menu" size={25} color="rgba(0,0,0,0.5)" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}>

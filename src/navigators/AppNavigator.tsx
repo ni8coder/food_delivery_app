@@ -7,8 +7,10 @@ import {fontFamily, fontSize} from 'theme/fonts';
 import CustomDrawer from './CustomDrawer';
 import Entypo from 'react-native-vector-icons/Entypo';
 import colors from 'theme/colors';
-import LocationNavigator from './LocationNavigator';
 import LocaleScreen from 'screens/drawer/Locales/LocaleScreen';
+import MyPlacesNavigator from './MyPlacesNavigator';
+import UserPlacesNavigator from './UserPlacesNavigator';
+import CommonPlacesScreen from 'screens/drawer/CommonPlaces/CommonPlacesScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,10 +35,18 @@ const AppNavigator = () => {
         drawerIcon: ({size, color}) => {
           if (route.name === 'Tabs') {
             return <FontAwesome name="home" size={size} color={color} />;
-          } else if (route.name === 'Places') {
+          } else if (route.name === 'My Places') {
+            return (
+              <MaterialIcons name="add-location" size={size} color={color} />
+            );
+          } else if (route.name === 'User List') {
             return <Entypo name="location-pin" size={size} color={color} />;
           } else if (route.name === 'Locale') {
             return <MaterialIcons name="language" size={size} color={color} />;
+          } else if (route.name === 'Common Places') {
+            return (
+              <FontAwesome name="location-arrow" size={size} color={color} />
+            );
           }
         },
       })}>
@@ -47,10 +57,16 @@ const AppNavigator = () => {
           title: 'Home',
         }}
       />
-      <Drawer.Screen name="Places" component={LocationNavigator} />
+      <Drawer.Screen name="My Places" component={MyPlacesNavigator} />
+      <Drawer.Screen name="User List" component={UserPlacesNavigator} />
       <Drawer.Screen
         name="Locale"
         component={LocaleScreen}
+        options={{headerShown: true}}
+      />
+      <Drawer.Screen
+        name="Common Places"
+        component={CommonPlacesScreen}
         options={{headerShown: true}}
       />
     </Drawer.Navigator>

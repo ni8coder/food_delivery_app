@@ -7,41 +7,44 @@ import MyPlacesScreen from 'screens/drawer/MyPlaces/MyPlacesScreen';
 import NewPlaceScreen from 'screens/drawer/MyPlaces/NewPlaceScreen';
 import DrawerBtn from 'components/DrawerBtn';
 import {LatLng} from 'react-native-maps';
+import {DrawerActions} from '@react-navigation/native';
+import {DrawerToggleButton} from '@react-navigation/drawer';
 
-type LocationStackParamList = {
-  'My Places': undefined;
+type MyPlacesStackParamList = {
+  Places: undefined;
   'Add New Place': LatLng | undefined;
 };
 
-const LocationStack = createNativeStackNavigator<LocationStackParamList>();
+const MyPlacesStack = createNativeStackNavigator<MyPlacesStackParamList>();
 
-const LocationNavigator = () => {
+const MyPlacesNavigator = () => {
   return (
-    <LocationStack.Navigator screenOptions={{title: ''}}>
-      <LocationStack.Screen
-        name="My Places"
+    <MyPlacesStack.Navigator>
+      <MyPlacesStack.Screen
+        name="Places"
         component={MyPlacesScreen}
         options={{
-          headerLeft: DrawerBtn,
+          headerLeft: DrawerToggleButton,
+          title: 'My Places',
         }}
       />
-      <LocationStack.Screen
+      <MyPlacesStack.Screen
         name="Add New Place"
         component={NewPlaceScreen}
         options={{headerShown: true}}
       />
-    </LocationStack.Navigator>
+    </MyPlacesStack.Navigator>
   );
 };
 
 export type MyPlacesScreenProps = NativeStackScreenProps<
-  LocationStackParamList,
-  'My Places'
+  MyPlacesStackParamList,
+  'Places'
 >;
 
 export type AddNewPlaceScreenProps = NativeStackScreenProps<
-  LocationStackParamList,
+  MyPlacesStackParamList,
   'Add New Place'
 >;
 
-export default LocationNavigator;
+export default MyPlacesNavigator;

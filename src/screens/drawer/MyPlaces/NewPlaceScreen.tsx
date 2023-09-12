@@ -11,7 +11,8 @@ import CustomSafeAreaView from 'components/CustomSafeAreaView';
 import {useAppSelector} from 'app/hooks';
 import {LatLng} from 'react-native-maps';
 import Config from 'react-native-config';
-import {AddNewPlaceScreenProps} from 'navigators/LocationNavigator';
+import {AddNewPlaceScreenProps} from 'navigators/MyPlacesNavigator';
+import {AUTHOR} from 'config/constants/app_constants';
 
 const placesRef = firestore().collection('UserMyPlaces');
 
@@ -67,11 +68,13 @@ const NewPlaceScreen = ({navigation, route}: AddNewPlaceScreenProps) => {
       latitude: coords?.latitude,
       longitude: coords?.longitude,
       placeName: coords?.placeName,
-      userName: authUser?.displayName,
+      userName: authUser?.email,
       userId: authUser?.uid,
+      author: AUTHOR,
     };
     placesRef.add(placeObj).then(() => {
       console.log('Places added!');
+      console.log(placeObj);
       showToast();
     });
   };

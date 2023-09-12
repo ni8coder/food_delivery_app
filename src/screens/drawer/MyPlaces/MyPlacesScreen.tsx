@@ -6,7 +6,7 @@ import colors from 'theme/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
 import {fontFamily, fontSize} from 'theme/fonts';
-import {MyPlacesScreenProps} from 'navigators/LocationNavigator';
+import {MyPlacesScreenProps} from 'navigators/MyPlacesNavigator';
 import {Place, setPlaces} from 'feature/places/placesSlice';
 
 const ItemSeparator = () => {
@@ -56,8 +56,8 @@ const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
               style={styles.linkView}
               onPress={() =>
                 navigation.navigate('Add New Place', {
-                  latitude: item.latitude,
-                  longitude: item.longitude,
+                  latitude: Number(item.latitude),
+                  longitude: Number(item.longitude),
                 })
               }>
               <Text style={styles.title}>{`${item.placeName}`}</Text>

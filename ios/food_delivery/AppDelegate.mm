@@ -6,6 +6,7 @@
 #import <SafariServices/SafariServices.h>
 #import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
 #import <React/RCTLinkingManager.h>
+#import "RNCConfig.h"
 
 @implementation AppDelegate
 
@@ -14,7 +15,7 @@
   //firebase
   [FIRApp configure];
   //react-native-maps
-  [GMSServices provideAPIKey:@"AIzaSyB4uOPrlEUJjx-tCcPm7BY5fn1gLwtB4BA"];
+  [GMSServices provideAPIKey:[RNCConfig envFor:@"MAPS_API_KEY"]];
   //facebook sdk
   [[FBSDKApplicationDelegate sharedInstance] application:application
                          didFinishLaunchingWithOptions:launchOptions];

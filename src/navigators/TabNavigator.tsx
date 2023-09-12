@@ -6,6 +6,7 @@ import MyListScreen from '@screens/tab/myList/MyListScreen';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FIcon from 'react-native-vector-icons/Fontisto';
 import ProfileNavigator from './ProfileNavigator';
+import {DrawerToggleButton} from '@react-navigation/drawer';
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -35,7 +36,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        // options={{tabBarBadge: 3}}
+        options={{headerLeft: DrawerToggleButton, headerShown: true}}
       />
       <Tab.Screen name="Order" component={OrderScreen} />
       <Tab.Screen name="MyList" component={MyListScreen} />
