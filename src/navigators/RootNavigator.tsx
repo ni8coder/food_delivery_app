@@ -1,15 +1,14 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import IntroScreen from '@screens/intro/IntroScreen';
 import AuthNavigator from './AuthNavigator';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import TabNavigator from './TabNavigator';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {signIn, signOut} from 'feature/auth/authSlice';
 import NotificationHelper from 'helpers/NotificationHelper';
 import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
-import {KeyboardProvider} from 'react-native-keyboard-controller';
 import notifee, {EventType} from '@notifee/react-native';
 import AppNavigator from './AppNavigator';
 import {useTranslation} from 'react-i18next';
@@ -21,8 +20,16 @@ const RootNavigator = () => {
   const {isIntroShown, isLoggedIn, isLoading} = useAppSelector(
     state => state.auth,
   );
+  const languageCode = useAppSelector(state => state.i18n.languageCode);
+  console.log('persisted languageCode', languageCode);
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
+  const languageRef = useRef(false);
+
+  if (!languageRef.current) {
+    i18n.changeLanguage(languageCode);
+    languageRef.current = true;
+  }
 
   useEffect(() => {
     i18n.on('languageChanged', function (lng) {
