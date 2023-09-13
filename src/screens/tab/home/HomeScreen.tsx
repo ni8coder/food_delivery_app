@@ -16,6 +16,8 @@ import Star from '@assets/images/home/star.png';
 import {SvgProps} from 'react-native-svg';
 import NewModuleButton from 'controls/NewModuleButton';
 import {useTranslation} from 'react-i18next';
+import {useDispatch} from 'react-redux';
+import {increment} from '@feature/counter/CounterSlice';
 
 const SNACKS = [
   {SVGImage: CoffeeCup, title: 'Drink'},
@@ -30,6 +32,7 @@ type SnackItemProps = {
   SVGImage: React.FC<SvgProps>;
   title: string;
 };
+
 const SnackItem = (props: SnackItemProps) => {
   const {SVGImage, title} = props;
   return (
@@ -46,6 +49,12 @@ const SnackItem = (props: SnackItemProps) => {
 const NEARME_DATA = [{}, {}, {}, {}, {}, {}];
 
 const HomeScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(increment());
+  }, []);
+
   const {t} = useTranslation();
 
   const RenderItem = ({item}) => {

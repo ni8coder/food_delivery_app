@@ -22,6 +22,7 @@ const AppNavigator = () => {
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={({route}) => ({
         drawerType: 'slide',
+        drawerType: 'permanent',
         drawerPosition: 'left',
         headerShown: false,
         drawerActiveBackgroundColor: colors.primary,

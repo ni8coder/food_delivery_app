@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* food_deliveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* food_deliveryTests.m */; };
+		04F6C0EB2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */; };
+		04F6C0EC2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */; };
+		04F6C0ED2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */; };
+		04F6C0EE2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */; };
+		04F6C0EF2AB1F46A003C3892 /* food_delivery-staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */; };
+		04F6C0F02AB1F46A003C3892 /* food_delivery-staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */; };
+		04F6C0F12AB1F46A003C3892 /* food_delivery-staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */; };
+		04F6C0F22AB1F46A003C3892 /* food_delivery-staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */; };
+		04F6C0F42AB1FDC5003C3892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F6C0F32AB1FDC5003C3892 /* GoogleService-Info.plist */; };
 		06FCC7E4C77F2EAF9D5EB71C /* Pods_food_deliveryCommonPods_food_deliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DAC8878B73F2CD1B6FCE06 /* Pods_food_deliveryCommonPods_food_deliveryTests.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -33,7 +42,6 @@
 		C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67634E793148453784782506 /* Roboto-Bold.ttf */; };
 		C8B8B9312AAF40DC006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9302AAF40DC006CB1BD /* GoogleService-Info.plist */; };
 		C8B8B9332AAF40E6006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9322AAF40E6006CB1BD /* GoogleService-Info.plist */; };
-		C8B8B9352AAF40F1006CB1BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */; };
 		C8E7EF502AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
 		C8E7EF512AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
 		C8E7EF522AA9DBA100ABA0F6 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E7EF4F2AA9DBA100ABA0F6 /* RCTCalendarModule.m */; };
@@ -57,6 +65,9 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* food_deliveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = food_deliveryTests.m; sourceTree = "<group>"; };
 		01DAC8878B73F2CD1B6FCE06 /* Pods_food_deliveryCommonPods_food_deliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_deliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "food_delivery-dev.plist"; sourceTree = "<group>"; };
+		04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "food_delivery-staging.plist"; sourceTree = "<group>"; };
+		04F6C0F32AB1FDC5003C3892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06E06C1549E73DEFA66684E7 /* Pods_food_deliveryCommonPods_food_delivery_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_food_deliveryCommonPods_food_delivery_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* food_delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = food_delivery/AppDelegate.h; sourceTree = "<group>"; };
@@ -79,12 +90,9 @@
 		99A822EC1932C5FB8C3202C7 /* Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_delivery_staging/Pods-food_deliveryCommonPods-food_delivery_staging.release.xcconfig"; sourceTree = "<group>"; };
 		9ABBDAE47BB290436878C814 /* Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-food_deliveryCommonPods-food_deliveryTests/Pods-food_deliveryCommonPods-food_deliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C81305E72AA105F100E5F167 /* food_delivery_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81305E82AA105F100E5F167 /* food_delivery-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-dev.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-dev.plist"; sourceTree = "<absolute>"; };
 		C81305FF2AA105F600E5F167 /* food_delivery_staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food_delivery_staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81306002AA105F600E5F167 /* food_delivery-staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "food_delivery-staging.plist"; path = "/Users/muhammadawaisiqbal/code/native-react/food_delivery/ios/food_delivery-staging.plist"; sourceTree = "<absolute>"; };
 		C8B8B9302AAF40DC006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8B8B9322AAF40E6006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8BB008D2A7E580B00F07296 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		C8BB008E2A7E580B00F07296 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		C8BB008F2A7E580B00F07296 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -170,6 +178,8 @@
 		13B07FAE1A68108700A75B9A /* food_delivery */ = {
 			isa = PBXGroup;
 			children = (
+				04F6C0E92AB1F46A003C3892 /* food_delivery-dev.plist */,
+				04F6C0EA2AB1F46A003C3892 /* food_delivery-staging.plist */,
 				C8A6C88D2AA117C000C8718F /* GoogleServices */,
 				C8F87B632A98011A0085EAA8 /* food_delivery.entitlements */,
 				C8BB008C2A7E580B00F07296 /* Fonts */,
@@ -224,8 +234,6 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				1A65C064E7844F6D9E009BF4 /* Resources */,
-				C81305E82AA105F100E5F167 /* food_delivery-dev.plist */,
-				C81306002AA105F600E5F167 /* food_delivery-staging.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -291,7 +299,7 @@
 		C8A6C8902AA117EB00C8718F /* development */ = {
 			isa = PBXGroup;
 			children = (
-				C8B8B9342AAF40F1006CB1BD /* GoogleService-Info.plist */,
+				04F6C0F32AB1FDC5003C3892 /* GoogleService-Info.plist */,
 			);
 			path = development;
 			sourceTree = "<group>";
@@ -456,6 +464,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F6C0F02AB1F46A003C3892 /* food_delivery-staging.plist in Resources */,
+				04F6C0EC2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,10 +475,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				04F6C0EF2AB1F46A003C3892 /* food_delivery-staging.plist in Resources */,
 				E1577C0ED95843E3BCF96046 /* Poppins-Bold.ttf in Resources */,
 				F4D0E88D0A9A49569B145E14 /* Roboto-Regular.ttf in Resources */,
 				68E16639D0E84AE48D1DC90B /* Roboto-Bold.ttf in Resources */,
 				C8B8B9312AAF40DC006CB1BD /* GoogleService-Info.plist in Resources */,
+				04F6C0EB2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,11 +489,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81305DA2AA105F100E5F167 /* LaunchScreen.storyboard in Resources */,
+				04F6C0F42AB1FDC5003C3892 /* GoogleService-Info.plist in Resources */,
 				C81305DB2AA105F100E5F167 /* Images.xcassets in Resources */,
+				04F6C0F12AB1F46A003C3892 /* food_delivery-staging.plist in Resources */,
 				C81305DC2AA105F100E5F167 /* Poppins-Bold.ttf in Resources */,
 				C81305DD2AA105F100E5F167 /* Roboto-Regular.ttf in Resources */,
 				C81305DE2AA105F100E5F167 /* Roboto-Bold.ttf in Resources */,
-				C8B8B9352AAF40F1006CB1BD /* GoogleService-Info.plist in Resources */,
+				04F6C0ED2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,10 +505,12 @@
 			files = (
 				C81305F22AA105F600E5F167 /* LaunchScreen.storyboard in Resources */,
 				C81305F32AA105F600E5F167 /* Images.xcassets in Resources */,
+				04F6C0F22AB1F46A003C3892 /* food_delivery-staging.plist in Resources */,
 				C81305F42AA105F600E5F167 /* Poppins-Bold.ttf in Resources */,
 				C81305F52AA105F600E5F167 /* Roboto-Regular.ttf in Resources */,
 				C81305F62AA105F600E5F167 /* Roboto-Bold.ttf in Resources */,
 				C8B8B9332AAF40E6006CB1BD /* GoogleService-Info.plist in Resources */,
+				04F6C0EE2AB1F46A003C3892 /* food_delivery-dev.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,7 +1037,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1102,7 +1118,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
