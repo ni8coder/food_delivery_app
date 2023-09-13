@@ -8,6 +8,7 @@ import {useAppDispatch, useAppSelector} from 'app/hooks';
 import {fontFamily, fontSize} from 'theme/fonts';
 import {MyPlacesScreenProps} from 'navigators/MyPlacesNavigator';
 import {Place, setPlaces} from 'feature/places/placesSlice';
+import {useAppState} from 'hooks/useAppState';
 
 const ItemSeparator = () => {
   return <View style={styles.separator} />;
@@ -20,12 +21,14 @@ const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
   const uid = authUser?.uid;
   const places = useAppSelector(state => state.places.places);
   const dispatch = useAppDispatch();
+  // const appState = useAppState();
+  // console.log('MyPlacesScreen appstate', appState);
 
   useEffect(() => {
     const subscriber = placesRef
       .where('userId', '==', uid)
       .onSnapshot(querySnapshot => {
-        console.log('Realtime Places data: ', querySnapshot.docs);
+        // console.log('Realtime Places data: ', querySnapshot.docs);
         let jsonData: Place[] = querySnapshot.docs.map(doc => {
           let place = doc.data();
           return {

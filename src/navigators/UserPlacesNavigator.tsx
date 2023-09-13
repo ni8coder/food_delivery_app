@@ -26,10 +26,6 @@ const UserPlacesNavigator = () => {
         component={UserListScreen}
         options={{
           headerLeft: DrawerToggleButton,
-          contentStyle: {
-            borderWidth: 5,
-            borderColor: 'red',
-          },
         }}
       />
       <UserPlacesStack.Screen

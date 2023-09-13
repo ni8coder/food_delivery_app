@@ -16,8 +16,8 @@ const rootReducer = combineReducers(reducers);
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: [], //only persist these reducers
-  blacklist: ['user'], //do not persist these reducers
+  // whitelist: [], //only persist these reducers
+  // blacklist: ['user'], //do not persist these reducers
 };
 
 //create a persist reducer
@@ -37,7 +37,7 @@ const saga = createSagaMiddleware();
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({serializableCheck: false}).concat(saga, logger),
+    getDefaultMiddleware({serializableCheck: false}).concat(saga),
   devTools: true,
 });
 

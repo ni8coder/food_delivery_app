@@ -1,4 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {store} from 'app/store';
+import {updateLocale} from 'feature/i18n/i18nSlice';
 import {LanguageDetectorAsyncModule} from 'i18next';
 
 type DetectCallbackType = (
@@ -10,24 +12,15 @@ const languageDetector: LanguageDetectorAsyncModule = {
   async: true,
   init: () => {},
   detect: function (callback: DetectCallbackType) {
-    AsyncStorage.getItem('user-language')
-      .then(language => {
-        if (language) {
-          console.log('language in detect', language);
-          return callback(language);
-        }
-      })
-      .catch(error => {
-        console.log('error in language detection', error);
-      });
+    console.log(
+      'detected language from store',
+      store.getState().i18n.languageCode,
+    );
+    return callback(store.getState().i18n.languageCode);
   },
   cacheUserLanguage: async function (language: string) {
     console.log('cacheUserLanguage', language);
-    try {
-      await AsyncStorage.setItem('user-language', language);
-    } catch (error) {
-      console.error(error);
-    }
+    store.dispatch(updateLocale(language));
   },
 };
 

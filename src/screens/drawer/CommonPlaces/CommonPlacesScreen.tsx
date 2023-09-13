@@ -12,12 +12,11 @@ import {RESULTS} from 'react-native-permissions';
 
 const placesRef = firestore().collection('UsersPosition');
 
-const CommonPlacesScreen = ({route}: UserLocationScreenProps) => {
+const CommonPlacesScreen = () => {
   const [isMapReady, setIsMapReady] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<string | undefined>(
     undefined,
   );
-  const [currentPosition, setCurrentPosition] = useState<GeoPosition>();
   const mapRef = useRef<MapViewHandle>(null);
   const authUser = useAppSelector(state => state.auth.user);
 
@@ -29,19 +28,60 @@ const CommonPlacesScreen = ({route}: UserLocationScreenProps) => {
     })();
   }, []);
 
+  //save users current position
+  const saveUserPostion = useCallback(
+    (position: GeoPosition) => {
+      if (authUser) {
+        const placeObj = {
+          currentLatitude: position.coords.latitude,
+          currentLongitude: position.coords.longitude,
+          locationTime: Math.floor(Date.now() / 1000),
+          speed: position.coords.speed,
+          userId: authUser.uid,
+          userName: authUser.email,
+          author: AUTHOR,
+        };
+
+        placesRef
+          .where('userId', '==', authUser.uid)
+          .get()
+          .then(querySnapshot => {
+            if (querySnapshot.docs.length) {
+              placesRef
+                .doc(querySnapshot.docs[0].id)
+                .update(placeObj)
+                .then(() => {
+                  console.log('Places updated!');
+                  // console.log(placeObj);
+                });
+            } else {
+              placesRef.add(placeObj).then(() => {
+                console.log('Places added!');
+                // console.log(placeObj);
+              });
+            }
+          });
+      }
+    },
+    [authUser],
+  );
+
   //success callback for getCurrentPostion
-  const userLocationSuccess = useCallback((position: GeoPosition) => {
-    console.log('success called', position);
-    setCurrentPosition(position);
-    if (position.coords) {
-      mapRef.current?.animateToRegion({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
-      });
-    }
-  }, []);
+  const userLocationSuccess = useCallback(
+    (position: GeoPosition) => {
+      // console.log('success called', position);
+      saveUserPostion(position);
+      if (position.coords) {
+        mapRef.current?.animateToRegion({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        });
+      }
+    },
+    [saveUserPostion],
+  );
 
   //error callback for getCurrentPostion
   const userLocationError = useCallback((error: GeoError) => {
@@ -52,7 +92,7 @@ const CommonPlacesScreen = ({route}: UserLocationScreenProps) => {
   useEffect(() => {
     if (permissionStatus === RESULTS.GRANTED) {
       console.log('getCurrentPosition called');
-      LocationHelper.getCurrentPosition(userLocationSuccess, userLocationError);
+      LocationHelper.trackUserLocation(userLocationSuccess, userLocationError);
     }
   }, [permissionStatus, userLocationError, userLocationSuccess]);
 
@@ -68,41 +108,6 @@ const CommonPlacesScreen = ({route}: UserLocationScreenProps) => {
   //     });
   //   }
   // }, [isMapReady, params]);
-
-  //saves current position
-  useEffect(() => {
-    if (currentPosition && authUser) {
-      const placeObj = {
-        currentLatitude: currentPosition.coords.latitude,
-        currentLongitude: currentPosition.coords.longitude,
-        locationTime: Math.floor(Date.now() / 1000),
-        speed: currentPosition.coords.speed,
-        userId: authUser.uid,
-        userName: authUser.email,
-        author: AUTHOR,
-      };
-
-      placesRef
-        .where('userId', '==', authUser.uid)
-        .get()
-        .then(querySnapshot => {
-          if (querySnapshot.docs.length) {
-            placesRef
-              .doc(querySnapshot.docs[0].id)
-              .update(placeObj)
-              .then(() => {
-                console.log('Places updated!');
-                // console.log(placeObj);
-              });
-          } else {
-            placesRef.add(placeObj).then(() => {
-              console.log('Places added!');
-              // console.log(placeObj);
-            });
-          }
-        });
-    }
-  }, [authUser, currentPosition]);
 
   //sets map ready value
   const onMapReady = useCallback(() => {

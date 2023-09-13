@@ -25,10 +25,10 @@ class LocationHelper {
     enableHighAccuracy: true,
     forceRequestLocation: true,
     showLocationDialog: true,
-    distanceFilter: 10,
+    distanceFilter: 50,
     useSignificantChanges: true,
     showsBackgroundLocationIndicator: true,
-    interval: 1000,
+    interval: 10000,
   };
 
   getCurrentPosition = (
