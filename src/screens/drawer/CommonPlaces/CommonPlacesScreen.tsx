@@ -1,18 +1,34 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Map, {MapViewHandle} from 'controls/Map';
 import CustomSafeAreaView from 'components/CustomSafeAreaView';
 import {UserLocationScreenProps} from 'navigators/UserPlacesNavigator';
-import firestore from '@react-native-firebase/firestore';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
 import {AUTHOR} from 'config/constants/app_constants';
 import {useAppSelector} from 'app/hooks';
 import {GeoError, GeoPosition} from 'react-native-geolocation-service';
 import LocationHelper from 'helpers/LocationHelper';
 import {RESULTS} from 'react-native-permissions';
+import {LatLng, MapMarkerProps} from 'react-native-maps';
+import CText from 'components/CText';
+import colors from 'theme/colors';
+
+type Place = {
+  currentLatitude: number;
+  currentLongitude: number;
+  locationTime: number;
+  speed: number;
+  userId: string;
+  userName: string;
+  author: string;
+};
 
 const placesRef = firestore().collection('UsersPosition');
 
 const CommonPlacesScreen = () => {
+  const [markers, setMarkers] = useState<MapMarkerProps[]>([]);
   const [isMapReady, setIsMapReady] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<string | undefined>(
     undefined,
@@ -26,6 +42,29 @@ const CommonPlacesScreen = () => {
       const result = await LocationHelper.checkLocationPermisstions();
       setPermissionStatus(result);
     })();
+  }, []);
+
+  //get all users current location
+  useEffect(() => {
+    const subscriber = placesRef.onSnapshot(querySnapshot => {
+      // console.log('Realtime Places data: ', querySnapshot.docs);
+      let markersData = querySnapshot.docs.map(doc => {
+        const data = doc.data() as Place;
+        return {
+          coordinate: {
+            latitude: data.currentLatitude,
+            longitude: data.currentLongitude,
+          },
+          title: data.author,
+          description: `User Speed is ${data.speed}`,
+        };
+      });
+      // console.log('jsonData', jsonData);
+      setMarkers(markersData);
+    });
+
+    // Stop listening for updates when no longer required
+    return () => subscriber();
   }, []);
 
   //save users current position
@@ -71,14 +110,6 @@ const CommonPlacesScreen = () => {
     (position: GeoPosition) => {
       // console.log('success called', position);
       saveUserPostion(position);
-      if (position.coords) {
-        mapRef.current?.animateToRegion({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        });
-      }
     },
     [saveUserPostion],
   );
@@ -109,6 +140,15 @@ const CommonPlacesScreen = () => {
   //   }
   // }, [isMapReady, params]);
 
+  const animateToRegion = (coords: LatLng) => {
+    mapRef.current?.animateToRegion({
+      latitude: coords.latitude,
+      longitude: coords.longitude,
+      latitudeDelta: 0.015,
+      longitudeDelta: 0.0121,
+    });
+  };
+
   //sets map ready value
   const onMapReady = useCallback(() => {
     setIsMapReady(true);
@@ -116,7 +156,18 @@ const CommonPlacesScreen = () => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
-      <Map ref={mapRef} onMapReady={onMapReady} />
+      <Map ref={mapRef} onMapReady={onMapReady} markers={markers} />
+      <View style={styles.userAvatarContainer}>
+        {markers.map(marker => {
+          return (
+            <TouchableOpacity
+              style={styles.avatarBtn}
+              onPress={() => animateToRegion(marker.coordinate)}>
+              <CText style={styles.markerTitle}>{marker.title}</CText>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </CustomSafeAreaView>
   );
 };
@@ -125,6 +176,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 0,
+  },
+  userAvatarContainer: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    flex: 1,
+    gap: 10,
+  },
+  markerTitle: {alignSelf: 'center'},
+  avatarBtn: {
+    borderWidth: 1,
+    borderRadius: 25,
+    backgroundColor: colors.white,
+    width: 50,
+    height: 50,
+    borderColor: colors.primary,
+    padding: 5,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

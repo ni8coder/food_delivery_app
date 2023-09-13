@@ -38,7 +38,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({serializableCheck: false}).concat(saga),
-  devTools: true,
+  // devTools: true,
 });
 
 //run all sagas

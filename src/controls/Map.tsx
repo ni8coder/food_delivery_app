@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import MapView, {
   LatLng,
+  MapMarkerProps,
   Marker,
   PROVIDER_GOOGLE,
   Region,
@@ -32,6 +33,7 @@ const MARKERS = [
 
 type MapProps = {
   onMapReady: () => void;
+  markers?: MapMarkerProps[];
 };
 
 type CoordsType = {
@@ -51,22 +53,22 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
   }));
 
   const renderMarkers = () => {
-    if (coords) {
-      return (
-        <Marker draggable coordinate={coords} title={''} description={''} />
-      );
+    if (props.markers?.length) {
+      return props.markers.map((marker, idx) => {
+        return (
+          <Marker
+            draggable
+            key={idx}
+            coordinate={marker.coordinate}
+            title={marker.title}
+            description={marker.description}
+          />
+        );
+      });
+      // return (
+      //   <Marker draggable coordinate={coords} title={''} description={''} />
+      // );
     }
-    // return MARKERS.map((marker, idx) => {
-    //   return (
-    //     <Marker
-    //       draggable
-    //       key={idx}
-    //       coordinate={marker.coordinates}
-    //       title={marker.title}
-    //       description={marker.description}
-    //     />
-    //   );
-    // });
   };
 
   return (
