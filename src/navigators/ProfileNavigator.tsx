@@ -12,6 +12,7 @@ import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
 import AddUserScreen from 'screens/tab/profile/users/AddUserScreen';
 import CameraScreen from 'screens/tab/profile/camera/CameraScreen';
 import QRScanner from 'screens/tab/profile/qr/QRScanner';
+import EditProfileScreen from 'screens/tab/profile/EditProfileScreen';
 
 type ProfileStackParamList = {
   Profile: undefined;
@@ -22,6 +23,7 @@ type ProfileStackParamList = {
   'QR Scanner': undefined;
   'User Detail': {user: FirebaseFirestoreTypes.DocumentData | undefined};
   'Add User': {user: FirebaseFirestoreTypes.DocumentData | undefined};
+  'Edit Profile': undefined;
 };
 
 const ProfileStack = createNativeStackNavigator<ProfileStackParamList>();
@@ -44,6 +46,7 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen name="Add User" component={AddUserScreen} />
       <ProfileStack.Screen name="Camera" component={CameraScreen} />
       <ProfileStack.Screen name="QR Scanner" component={QRScanner} />
+      <ProfileStack.Screen name="Edit Profile" component={EditProfileScreen} />
     </ProfileStack.Navigator>
   );
 };
@@ -76,6 +79,11 @@ export type UserDetailScreenProps = NativeStackScreenProps<
 export type AddUserScreenProps = NativeStackScreenProps<
   ProfileStackParamList,
   'Add User'
+>;
+
+export type EditProfileScreenProps = NativeStackScreenProps<
+  ProfileStackParamList,
+  'Edit Profile'
 >;
 
 export default ProfileNavigator;

@@ -16,6 +16,7 @@ import {signOut} from '@feature/auth/authSlice';
 import {fontFamily, fontSize} from '@theme/fonts';
 import auth from '@react-native-firebase/auth';
 import CText from 'components/CText';
+import colors from 'theme/colors';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
   const dispatch = useAppDispatch();
@@ -40,7 +41,14 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
       </TouchableOpacity> */}
       <ScrollView>
         <View style={styles.imageContainer}>
-          <Image source={ProfileImage} style={styles.profileImage} />
+          <View>
+            <Image source={ProfileImage} style={styles.profileImage} />
+            <TouchableOpacity
+              style={styles.editBtn}
+              onPress={() => navigation.navigate('Edit Profile')}>
+              <FontAwesome name={'edit'} size={30} color={colors.black} />
+            </TouchableOpacity>
+          </View>
           <View style={styles.nameContainer}>
             <CText style={styles.nameCText}>Naznin</CText>
             <CText style={styles.phoneNumber}>+0800101111</CText>
@@ -133,6 +141,11 @@ const styles = StyleSheet.create({
   linkContainer: {
     gap: 20,
     marginBottom: 80,
+  },
+  editBtn: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
   },
 });
 
