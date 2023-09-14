@@ -65,9 +65,12 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
           />
         );
       });
-      // return (
-      //   <Marker draggable coordinate={coords} title={''} description={''} />
-      // );
+    } else {
+      if (coords) {
+        return (
+          <Marker draggable coordinate={coords} title={''} description={''} />
+        );
+      }
     }
   };
 
