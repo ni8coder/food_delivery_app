@@ -27,7 +27,7 @@ import ColorPicker, {
 type UserObj = {
   firstName: string;
   lastName: string;
-  color: string;
+  userColor: string;
 };
 
 const placesRef = firestore().collection('UsersPosition');
@@ -75,7 +75,7 @@ const EditProfileScreen = ({navigation}: EditProfileScreenProps) => {
     const userObj: UserObj = {
       firstName: firstName.trim(),
       lastName: lastName.trim(),
-      color: color.trim(),
+      userColor: color.trim(),
     };
 
     placesRef

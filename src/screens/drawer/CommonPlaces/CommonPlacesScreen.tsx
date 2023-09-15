@@ -23,6 +23,7 @@ type Place = {
   userId: string;
   userName: string;
   author: string;
+  userColor: string;
 };
 
 const placesRef = firestore().collection('UsersPosition');
@@ -57,6 +58,7 @@ const CommonPlacesScreen = () => {
           },
           title: data.author,
           description: `User Speed is ${data.speed}`,
+          pinColor: data.userColor,
         };
       });
       // console.log('jsonData', jsonData);

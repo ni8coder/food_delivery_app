@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React, {
   Ref,
   forwardRef,
@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react';
 import MapView, {
+  Callout,
   LatLng,
   MapMarkerProps,
   Marker,
@@ -59,10 +60,17 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
           <Marker
             draggable
             key={idx}
+            pinColor={marker.pinColor}
             coordinate={marker.coordinate}
             title={marker.title}
-            description={marker.description}
-          />
+            description={marker.description}>
+            <Callout style={styles.plainView}>
+              <View>
+                <Text>{marker.title}</Text>
+                <Text>{marker.description}</Text>
+              </View>
+            </Callout>
+          </Marker>
         );
       });
     } else {
@@ -97,6 +105,9 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
 const styles = StyleSheet.create({
   mapView: {
     flex: 1,
+  },
+  plainView: {
+    width: 90,
   },
 });
 
