@@ -2,6 +2,7 @@ import authSlice from './auth/authSlice';
 import CounterSlice from './counter/CounterSlice';
 import feedSlice from './feeds/feedSlice';
 import i18nSlice from './i18n/i18nSlice';
+import messageSlice from './message/messageSlice';
 import placesSlice from './places/placesSlice';
 import userSlice from './users/userSlice';
 
@@ -12,4 +13,5 @@ export default {
   user: userSlice,
   places: placesSlice,
   i18n: i18nSlice,
+  messages: messageSlice,
 };

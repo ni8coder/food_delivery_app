@@ -4,6 +4,8 @@ declare module 'react-native-config' {
     ENVIRONMENT?: string;
     APP_NAME?: string;
     MAPS_API_KEY?: string;
+    PUBNUB_PUBLISH_KEY: string;
+    PUBNUB_SUBSCRIBE_KEY: string;
   }
 
   export const Config: NativeConfig;

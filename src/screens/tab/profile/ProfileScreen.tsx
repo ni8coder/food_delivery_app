@@ -5,20 +5,27 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import ProfileImage from '@assets/images/profile/profile.jpg';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CustomButton from '@components/CustomButton';
 import {ProfileScreenProps} from '@navigators/ProfileNavigator';
-import {useAppDispatch} from '@app/hooks';
+import {useAppDispatch, useAppSelector} from '@app/hooks';
 import {signOut} from '@feature/auth/authSlice';
 import {fontFamily, fontSize} from '@theme/fonts';
 import auth from '@react-native-firebase/auth';
 import CText from 'components/CText';
 import colors from 'theme/colors';
+import {usePubNub} from 'pubnub-react';
+import {MessageEvent} from 'pubnub';
 
 const ProfileScreen = ({navigation}: ProfileScreenProps) => {
+  const pubnub = usePubNub();
+  const authUser = useAppSelector(state => state.auth.user);
+  const [channels] = useState(['ITC', authUser.uid, 'JM']);
+  const [messages, addMessage] = useState<string[]>([]);
+  const [message, setMessage] = useState('');
   const dispatch = useAppDispatch();
 
   const handleLogout = async () => {
@@ -31,6 +38,32 @@ const ProfileScreen = ({navigation}: ProfileScreenProps) => {
       .catch(error => console.log(error));
     // dispatch(signOut());
   };
+
+  const handleMessage = (event: MessageEvent) => {
+    const message = event.message;
+    console.log('message', event);
+    if (typeof message === 'string' || message.hasOwnProperty('text')) {
+      const text = message.text || message;
+      addMessage(messages => [...messages, text]);
+    }
+  };
+
+  const sendMessage = (message: string) => {
+    if (message) {
+      pubnub
+        .publish({channel: channels[2], message})
+        .then(() => setMessage(''));
+    }
+  };
+
+  useEffect(() => {
+    pubnub.addListener({message: handleMessage});
+    pubnub.subscribe({channels});
+
+    () => {
+      pubnub.unsubscribeAll();
+    };
+  }, [pubnub, channels]);
 
   return (
     <CustomSafeAreaView style={styles.container}>

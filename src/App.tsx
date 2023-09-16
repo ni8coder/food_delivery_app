@@ -17,6 +17,10 @@ import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {NavigationContainer} from '@react-navigation/native';
 import 'intl-pluralrules';
 import 'helpers/i18nHelper';
+import {PubNubProvider} from 'pubnub-react';
+import PubNubHelper from 'helpers/PubNubHelper';
+
+const pubnub = PubNubHelper.pubnubInstance;
 
 function App() {
   return (
@@ -24,9 +28,11 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <GestureHandlerRootView style={styles.gestureHandlerRootView}>
           <SafeAreaProvider>
-            <NavigationContainer>
-              <RootNavigator />
-            </NavigationContainer>
+            <PubNubProvider client={pubnub}>
+              <NavigationContainer>
+                <RootNavigator />
+              </NavigationContainer>
+            </PubNubProvider>
             <Toast />
           </SafeAreaProvider>
         </GestureHandlerRootView>

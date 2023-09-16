@@ -33,7 +33,7 @@ const MARKERS = [
 ];
 
 type MapProps = {
-  onMapReady: () => void;
+  onMapReady?: () => void;
   markers?: MapMarkerProps[];
 };
 
@@ -67,6 +67,7 @@ const Map = forwardRef<MapViewHandle, MapProps>((props, ref) => {
             <Callout style={styles.plainView}>
               <View>
                 <Text>{marker.title}</Text>
+                <Text>{`${marker.coordinate.latitude}, ${marker.coordinate.longitude}`}</Text>
                 <Text>{marker.description}</Text>
               </View>
             </Callout>
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   plainView: {
-    width: 90,
+    width: 150,
   },
 });
 

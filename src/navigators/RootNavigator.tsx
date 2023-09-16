@@ -12,6 +12,7 @@ import {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 import notifee, {EventType} from '@notifee/react-native';
 import AppNavigator from './AppNavigator';
 import {useTranslation} from 'react-i18next';
+import PubNubHelper from 'helpers/PubNubHelper';
 
 const RootStack = createNativeStackNavigator();
 
@@ -25,11 +26,18 @@ const RootNavigator = () => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const languageRef = useRef(false);
+  const authUserUid = useAppSelector(state => state.auth.user?.uid);
 
   if (!languageRef.current) {
     i18n.changeLanguage(languageCode);
     languageRef.current = true;
   }
+
+  useEffect(() => {
+    if (authUserUid) {
+      PubNubHelper.pubnubInstance.setUUID(authUserUid);
+    }
+  }, [authUserUid]);
 
   useEffect(() => {
     i18n.on('languageChanged', function (lng) {

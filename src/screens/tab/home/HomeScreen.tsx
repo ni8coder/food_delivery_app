@@ -1,7 +1,6 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import Feather from 'react-native-vector-icons/Feather';
 import CustomSafeAreaView from '@components/CustomSafeAreaView';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import CoffeeCup from '@assets/images/home/coffee-cup.svg';
