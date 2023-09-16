@@ -3,7 +3,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Map, {MapViewHandle} from 'controls/Map';
 import CustomSafeAreaView from 'components/CustomSafeAreaView';
 import firestore from '@react-native-firebase/firestore';
-import {AUTHOR} from 'config/constants/app_constants';
+import {AUTHOR, ITC, ITC_DATA} from 'config/constants/app_constants';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
 import {GeoError, GeoPosition} from 'react-native-geolocation-service';
 import LocationHelper from 'helpers/LocationHelper';
@@ -14,29 +14,25 @@ import PubNubHelper from 'helpers/PubNubHelper';
 import {MessageEvent} from 'pubnub';
 import MapTopOverlay from './ChildComponent/MapTopOverlay';
 import UserAvatars from './ChildComponent/UserAvatars';
-import {Message, addMessage} from 'feature/message/messageSlice';
+import {
+  Message,
+  addMessage,
+  resetUnreadCount,
+} from 'feature/message/messageSlice';
 import MessageList from './ChildComponent/MessageList';
-
-export type Place = {
-  currentLatitude: number;
-  currentLongitude: number;
-  locationTime: number;
-  speed: number;
-  userId: string;
-  userName: string;
-  author: string;
-  userColor: string;
-};
+import {UserPosition, setUserPosition} from 'feature/places/placesSlice';
 
 const placesRef = firestore().collection('UsersPosition');
 
 const CommonPlacesScreen = () => {
   const actionSheetRef = useRef<ActionSheetRef>(null);
+  // const [userData, setUserData] =
   const [markers, setMarkers] = useState<MapMarkerProps[]>([]);
   const [isMapReady, setIsMapReady] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<string | undefined>(
     undefined,
   );
+  const [messageList, setMessageList] = useState<Message[]>([]);
   const mapRef = useRef<MapViewHandle>(null);
   const authUser = useAppSelector(state => state.auth.user);
   const [channels] = useState(['ITC', authUser.uid]);
@@ -55,14 +51,19 @@ const CommonPlacesScreen = () => {
           channel: event.channel,
           publisher: event.publisher,
         };
-        const isITC = event.channel === 'ITC';
-        dispatch(addMessage({channel: isITC ? 'ITC' : event.publisher, data}));
+        const isITC = event.channel === ITC;
+        dispatch(addMessage({channel: isITC ? ITC : event.publisher, data}));
       }
     },
     [dispatch],
   );
 
-  const showMessageList = () => {
+  const showMessageList = (userId: string) => {
+    if (messages[userId]) {
+      dispatch(resetUnreadCount({channel: userId}));
+    }
+    const messageListTemp = messages[userId]?.list;
+    setMessageList(messageListTemp ? messageListTemp : []);
     actionSheetRef.current?.show();
   };
 
@@ -87,15 +88,28 @@ const CommonPlacesScreen = () => {
     })();
   }, []);
 
+  //get initial user position data
+  useEffect(() => {
+    placesRef.get().then(querySnapshot => {
+      // console.log('Realtime Places data: ', querySnapshot.docs);
+      let userPositionData: UserPosition[] = [];
+      querySnapshot.docs.forEach(doc => {
+        const data = doc.data() as UserPosition;
+        userPositionData.push(data);
+      });
+      userPositionData.push(ITC_DATA);
+      // console.log('jsonData', jsonData);
+      dispatch(setUserPosition(userPositionData));
+    });
+  }, [dispatch]);
+
   //get all users current location
   useEffect(() => {
     const subscriber = placesRef.onSnapshot(querySnapshot => {
       // console.log('Realtime Places data: ', querySnapshot.docs);
       let markersData: MapMarkerProps[] = [];
-
       querySnapshot.docs.forEach(doc => {
-        const data = doc.data() as Place;
-
+        const data = doc.data() as UserPosition;
         markersData.push({
           coordinate: {
             latitude: data.currentLatitude,
@@ -202,10 +216,9 @@ const CommonPlacesScreen = () => {
       <Map ref={mapRef} onMapReady={onMapReady} markers={markers} />
       <UserAvatars
         animateToRegion={animateToRegion}
-        markers={markers}
         showMessageList={showMessageList}
       />
-      <MessageList messages={messages} ref={actionSheetRef} />
+      <MessageList messages={messageList} ref={actionSheetRef} />
     </CustomSafeAreaView>
   );
 };

@@ -20,7 +20,7 @@ import {fontFamily, fontSize} from '@theme/fonts';
 import auth from '@react-native-firebase/auth';
 import CText from 'components/CText';
 import {UserPlacesScreenProps} from 'navigators/UserPlacesNavigator';
-import {Place} from 'feature/places/placesSlice';
+import {UserMyPlace} from 'feature/places/placesSlice';
 import firestore from '@react-native-firebase/firestore';
 import colors from 'theme/colors';
 
@@ -32,7 +32,7 @@ const placesRef = firestore().collection('UserMyPlaces');
 
 const UserProfileScreen = ({navigation, route}: UserPlacesScreenProps) => {
   const params = route.params;
-  const [userPlaces, setUserPlaces] = useState<Place[]>();
+  const [userPlaces, setUserPlaces] = useState<UserMyPlace[]>();
 
   useEffect(() => {
     let subscriber = () => {};
@@ -44,7 +44,7 @@ const UserProfileScreen = ({navigation, route}: UserPlacesScreenProps) => {
             'Realtime Places data of single user: ',
             querySnapshot.docs,
           );
-          let jsonData: Place[] = querySnapshot.docs.map(doc => {
+          let jsonData: UserMyPlace[] = querySnapshot.docs.map(doc => {
             let place = doc.data();
             return {
               latitude: place.latitude,

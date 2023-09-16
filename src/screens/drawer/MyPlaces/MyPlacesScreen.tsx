@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
 import {fontFamily, fontSize} from 'theme/fonts';
 import {MyPlacesScreenProps} from 'navigators/MyPlacesNavigator';
-import {Place, setPlaces} from 'feature/places/placesSlice';
+import {UserMyPlace, setPlaces} from 'feature/places/placesSlice';
 import {useAppState} from 'hooks/useAppState';
 
 const ItemSeparator = () => {
@@ -29,7 +29,7 @@ const MyPlacesScreen = ({navigation}: MyPlacesScreenProps) => {
       .where('userId', '==', uid)
       .onSnapshot(querySnapshot => {
         // console.log('Realtime Places data: ', querySnapshot.docs);
-        let jsonData: Place[] = querySnapshot.docs.map(doc => {
+        let jsonData: UserMyPlace[] = querySnapshot.docs.map(doc => {
           let place = doc.data();
           return {
             latitude: place.latitude,

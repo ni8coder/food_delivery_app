@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {ITC} from 'config/constants/app_constants';
 
 export type Message = {
   message: string;
@@ -8,11 +9,16 @@ export type Message = {
 
 type InitialState = {
   messages: {
-    [channel: string]: Message[];
+    [channel: string]: {
+      list: Message[];
+      unreadCount: number;
+    };
   };
 };
 
-const initialState: InitialState = {messages: {}};
+const initialState: InitialState = {
+  messages: {},
+};
 
 const messageSlice = createSlice({
   name: 'message',
@@ -21,16 +27,28 @@ const messageSlice = createSlice({
     addMessage: (state, action) => {
       const channel = action.payload.channel;
       const data = action.payload.data;
-
-      if (state.messages[channel]) {
-        state.messages[channel] = [...state.messages[channel], data];
+      console.log('inside add message', channel, data);
+      if (state.messages[channel]?.list) {
+        state.messages[channel].list = [...state.messages[channel].list, data];
+        state.messages[channel].unreadCount += 1;
       } else {
-        state.messages[channel] = [data];
+        state.messages[channel] = {list: [data], unreadCount: 1};
       }
+    },
+    updateUnreadCount: (state, action) => {
+      const channel = action.payload.channel;
+
+      state.messages[channel].unreadCount += 1;
+    },
+    resetUnreadCount: (state, action) => {
+      const channel = action.payload.channel;
+      console.log('resetUnreadCount channel', channel);
+      state.messages[channel].unreadCount = 0;
     },
   },
 });
 
-export const {addMessage} = messageSlice.actions;
+export const {addMessage, updateUnreadCount, resetUnreadCount} =
+  messageSlice.actions;
 
 export default messageSlice.reducer;

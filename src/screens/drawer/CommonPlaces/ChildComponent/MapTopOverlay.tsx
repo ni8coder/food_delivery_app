@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
-import {Place} from '../CommonPlacesScreen';
+import {UserPlace} from '../CommonPlacesScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PubNubHelper from 'helpers/PubNubHelper';
 import colors from 'theme/colors';
@@ -10,13 +10,12 @@ import {fontFamily} from 'theme/fonts';
 import firestore from '@react-native-firebase/firestore';
 import {Message, addMessage} from 'feature/message/messageSlice';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
+import {AUTHOR, ITC} from 'config/constants/app_constants';
 
 type ChannelType = {
   label: string;
   value: string;
 };
-
-const placesRef = firestore().collection('UsersPosition');
 
 const MapTopOverlay = () => {
   const [userChannels, setUserChannels] = useState<ChannelType[]>([]);
@@ -24,27 +23,19 @@ const MapTopOverlay = () => {
   const [value, setValue] = useState(null);
   const [messageText, setMessageText] = useState('');
   const authUserUid = useAppSelector(state => state.auth.user?.uid);
+  const userPositionData = useAppSelector(state => state.places.userPosition);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    placesRef.get().then(querySnapshot => {
-      // console.log('Realtime Places data: ', querySnapshot.docs);
-      let channelData: ChannelType[] = [];
-      querySnapshot.docs.forEach(doc => {
-        const data = doc.data() as Place;
-        channelData.push({
-          label: data.author,
-          value: data.userId,
-        });
-      });
-      channelData.push({
-        label: 'ITC',
-        value: 'ITC',
-      });
-      // console.log('jsonData', jsonData);
+    if (userPositionData) {
+      let channelData = userPositionData.map(data => ({
+        label: data.author,
+        value: data.userId,
+      }));
+
       setUserChannels(channelData);
-    });
-  }, []);
+    }
+  }, [userPositionData]);
 
   const sendMessage = async () => {
     if (!value) {
@@ -65,10 +56,10 @@ const MapTopOverlay = () => {
       await PubNubHelper.sendMessage(messageText, value);
       const data: Message = {
         message: messageText,
-        channel: value,
-        publisher: value,
+        channel: authUserUid,
+        publisher: authUserUid,
       };
-      if (value !== 'ITC') {
+      if (value !== ITC) {
         dispatch(addMessage({channel: value, data}));
       }
     } catch (error) {

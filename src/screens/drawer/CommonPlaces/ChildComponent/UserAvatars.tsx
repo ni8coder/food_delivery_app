@@ -5,38 +5,57 @@ import colors from 'theme/colors';
 import {fontFamily} from 'theme/fonts';
 import {LatLng, MapMarkerProps} from 'react-native-maps';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {useAppSelector} from 'app/hooks';
 
 type UserAvatarsType = {
   animateToRegion: (coords: LatLng) => void;
-  markers: MapMarkerProps[];
-  showMessageList: () => void;
+  showMessageList: (userId: string) => void;
 };
 
 const UserAvatars = (props: UserAvatarsType) => {
+  const userPositionData = useAppSelector(state => state.places.userPosition);
+  const messages = useAppSelector(state => state.messages.messages);
+
+  const getUnreadCount = (userId: string) => {
+    const channel = messages[userId];
+
+    return channel ? channel.unreadCount : 0;
+  };
+
   return (
     <View style={styles.userAvatarContainer}>
-      {props.markers.map(marker => {
-        return (
-          <View style={styles.innerContainer}>
-            <TouchableOpacity
-              onPress={() => props.animateToRegion(marker.coordinate)}>
-              <FontAwesome5
-                name={'map-marker-alt'}
-                size={30}
-                color={marker.pinColor}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.avatarBtn}
-              onPress={props.showMessageList}>
-              <CText style={styles.markerTitle}>{marker.title}</CText>
-            </TouchableOpacity>
-            <View style={styles.badgeContainer}>
-              <CText style={{color: colors.white}}>22</CText>
-            </View>
-          </View>
-        );
-      })}
+      {userPositionData.length
+        ? userPositionData.map((user, idx) => {
+            const unreadCount = getUnreadCount(user.userId);
+            return (
+              <View style={styles.innerContainer} key={idx.toString()}>
+                <TouchableOpacity
+                  onPress={() =>
+                    props.animateToRegion({
+                      latitude: user.currentLatitude,
+                      longitude: user.currentLongitude,
+                    })
+                  }>
+                  <FontAwesome5
+                    name={'map-marker-alt'}
+                    size={30}
+                    color={user.userColor}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.avatarBtn}
+                  onPress={() => props.showMessageList(user.userId)}>
+                  <CText style={styles.markerTitle}>{user.author}</CText>
+                </TouchableOpacity>
+                {unreadCount ? (
+                  <View style={styles.badgeContainer}>
+                    <CText style={{color: colors.white}}>{unreadCount}</CText>
+                  </View>
+                ) : null}
+              </View>
+            );
+          })
+        : null}
     </View>
   );
 };

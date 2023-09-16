@@ -4,8 +4,7 @@ import ActionSheet, {ActionSheetRef} from 'react-native-actions-sheet';
 import colors from 'theme/colors';
 import {fontSize} from 'theme/fonts';
 import CText from 'components/CText';
-import {useAppSelector} from 'app/hooks';
-import {Place} from '../CommonPlacesScreen';
+import {useAppDispatch, useAppSelector} from 'app/hooks';
 import firestore from '@react-native-firebase/firestore';
 import {Message} from 'feature/message/messageSlice';
 
@@ -16,34 +15,26 @@ type PlaceDetail = {
 };
 
 type MessageListProps = {
-  messages: {
-    [channel: string]: Message[];
-  };
+  messages: Message[];
 };
-
-const placesRef = firestore().collection('UsersPosition');
 
 const MessageList = forwardRef<ActionSheetRef, MessageListProps>(
   (props, ref) => {
     const [placeDetail, setPlaceDetail] = useState<PlaceDetail[]>([]);
     const authUser = useAppSelector(state => state.auth.user);
+    const userPositionData = useAppSelector(state => state.places.userPosition);
 
     useEffect(() => {
-      placesRef.get().then(querySnapshot => {
-        // console.log('Realtime Places data: ', querySnapshot.docs);
-        const placeDetailsData: PlaceDetail[] = [];
-        querySnapshot.docs.forEach(doc => {
-          const data = doc.data() as Place;
-          placeDetailsData.push({
-            userId: data.userId,
-            userName: data.userName,
-            author: data.author,
-          });
-        });
-        // console.log('jsonData', jsonData);
+      if (userPositionData) {
+        let placeDetailsData = userPositionData.map(data => ({
+          userId: data.userId,
+          userName: data.userName,
+          author: data.author,
+        }));
+
         setPlaceDetail(placeDetailsData);
-      });
-    }, []);
+      }
+    }, [userPositionData]);
 
     const getPublisherName = (userId: string) => {
       const author = placeDetail.filter(place => place.userId === userId)[0]
@@ -59,7 +50,7 @@ const MessageList = forwardRef<ActionSheetRef, MessageListProps>(
     return (
       <ActionSheet containerStyle={styles.actionSheet} ref={ref}>
         <FlatList
-          data={props.messages['ITC']}
+          data={props.messages}
           renderItem={({item}) => {
             return (
               <View
