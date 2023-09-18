@@ -27,7 +27,6 @@ class PubNubHelper {
 
   addListener = (handleMessage: (event: MessageEvent) => void) => {
     this.pubnub.addListener({message: handleMessage});
-    return handleMessage;
   };
 
   subscribe = (config: Pubnub.SubscribeParameters) => {

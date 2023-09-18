@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {ITC} from 'config/constants/app_constants';
 
 export type Message = {
   message: string;
@@ -27,7 +26,7 @@ const messageSlice = createSlice({
     addMessage: (state, action) => {
       const channel = action.payload.channel;
       const data = action.payload.data;
-      console.log('inside add message', channel, data);
+      // console.log('inside add message', channel, data);
       if (state.messages[channel]?.list) {
         state.messages[channel].list = [...state.messages[channel].list, data];
         state.messages[channel].unreadCount += 1;
@@ -42,7 +41,7 @@ const messageSlice = createSlice({
     },
     resetUnreadCount: (state, action) => {
       const channel = action.payload.channel;
-      console.log('resetUnreadCount channel', channel);
+      // console.log('resetUnreadCount channel', channel);
       state.messages[channel].unreadCount = 0;
     },
   },

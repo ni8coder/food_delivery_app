@@ -12,8 +12,8 @@ import {LatLng, MapMarkerProps} from 'react-native-maps';
 import {ActionSheetRef} from 'react-native-actions-sheet';
 import PubNubHelper from 'helpers/PubNubHelper';
 import {MessageEvent} from 'pubnub';
-import MapTopOverlay from './ChildComponent/MapTopOverlay';
-import UserAvatars from './ChildComponent/UserAvatars';
+import ChatInput from './ChildComponent/ChatInput';
+import UserList from './ChildComponent/UserList';
 import {
   Message,
   addMessage,
@@ -21,6 +21,7 @@ import {
 } from 'feature/message/messageSlice';
 import MessageList from './ChildComponent/MessageList';
 import {UserPosition, setUserPosition} from 'feature/places/placesSlice';
+import {useUpdateLocation} from 'hooks/useUpdateLocation';
 
 const placesRef = firestore().collection('UsersPosition');
 
@@ -29,21 +30,20 @@ const CommonPlacesScreen = () => {
   // const [userData, setUserData] =
   const [markers, setMarkers] = useState<MapMarkerProps[]>([]);
   const [isMapReady, setIsMapReady] = useState(false);
-  const [permissionStatus, setPermissionStatus] = useState<string | undefined>(
-    undefined,
-  );
   const [messageList, setMessageList] = useState<Message[]>([]);
   const mapRef = useRef<MapViewHandle>(null);
   const authUser = useAppSelector(state => state.auth.user);
-  const [channels] = useState(['ITC', authUser.uid]);
+  const [channels] = useState(['ITC', authUser?.uid]);
   const dispatch = useAppDispatch();
   const messages = useAppSelector(state => state.messages.messages);
-  console.log('messages', messages);
+  // console.log('All Messages', messages);
+
+  useUpdateLocation();
 
   const handleMessage = useCallback(
     (event: MessageEvent) => {
       const message = event.message;
-      console.log('message', event);
+      // console.log('Received Message', event);
       if (typeof message === 'string' || message.hasOwnProperty('text')) {
         const text = message.text || message;
         const data: Message = {
@@ -58,35 +58,30 @@ const CommonPlacesScreen = () => {
     [dispatch],
   );
 
-  const showMessageList = (userId: string) => {
-    if (messages[userId]) {
-      dispatch(resetUnreadCount({channel: userId}));
-    }
-    const messageListTemp = messages[userId]?.list;
-    setMessageList(messageListTemp ? messageListTemp : []);
-    actionSheetRef.current?.show();
-  };
+  const showMessageList = useCallback(
+    (userId: string) => {
+      if (messages[userId]) {
+        dispatch(resetUnreadCount({channel: userId}));
+      }
+      const messageListTemp = messages[userId]?.list;
+      setMessageList(messageListTemp ? messageListTemp : []);
+      actionSheetRef.current?.show();
+    },
+    [dispatch, messages],
+  );
 
   //subscribe to channels
   useEffect(() => {
     PubNubHelper.subscribe({channels});
-    const removeHandler = PubNubHelper.addListener(handleMessage);
-    console.log('all listeners addedd');
+    PubNubHelper.addListener(handleMessage);
+    console.log('all listeners added');
 
     return () => {
       console.log('all listeners removed');
-      PubNubHelper.removeListener(removeHandler);
+      PubNubHelper.removeListener(handleMessage);
       PubNubHelper.unsubscribeAll();
     };
   }, [channels, handleMessage]);
-
-  //get location persmissions
-  useEffect(() => {
-    (async () => {
-      const result = await LocationHelper.checkLocationPermisstions();
-      setPermissionStatus(result);
-    })();
-  }, []);
 
   //get initial user position data
   useEffect(() => {
@@ -128,74 +123,6 @@ const CommonPlacesScreen = () => {
     return () => subscriber();
   }, []);
 
-  //save users current position
-  const saveUserPostion = useCallback(
-    (position: GeoPosition) => {
-      if (authUser) {
-        const placeObj = {
-          currentLatitude: position.coords.latitude,
-          currentLongitude: position.coords.longitude,
-          locationTime: Math.floor(Date.now() / 1000),
-          speed: position.coords.speed,
-          userId: authUser.uid,
-          userName: authUser.email,
-          author: AUTHOR,
-        };
-
-        placesRef
-          .where('userId', '==', authUser.uid)
-          .get()
-          .then(querySnapshot => {
-            if (querySnapshot.docs.length) {
-              placesRef
-                .doc(querySnapshot.docs[0].id)
-                .update(placeObj)
-                .then(() => {
-                  console.log('Places updated!');
-                  // console.log(placeObj);
-                });
-            } else {
-              placesRef.add(placeObj).then(() => {
-                console.log('Places added!');
-                // console.log(placeObj);
-              });
-            }
-          });
-      }
-    },
-    [authUser],
-  );
-
-  //success callback for getCurrentPostion
-  const userLocationSuccess = useCallback(
-    (position: GeoPosition) => {
-      // console.log('success called', position);
-      saveUserPostion(position);
-    },
-    [saveUserPostion],
-  );
-
-  //error callback for getCurrentPostion
-  const userLocationError = useCallback((error: GeoError) => {
-    console.log(error);
-  }, []);
-
-  //getCurrentPosition
-  useEffect(() => {
-    let trackingId: number;
-    if (permissionStatus === RESULTS.GRANTED) {
-      console.log('getCurrentPosition called');
-      trackingId = LocationHelper.trackUserLocation(
-        userLocationSuccess,
-        userLocationError,
-      );
-    }
-
-    return () => {
-      LocationHelper.clearTracking(trackingId);
-    };
-  }, [permissionStatus, userLocationError, userLocationSuccess]);
-
   const animateToRegion = useCallback((coords: LatLng) => {
     mapRef.current?.animateToRegion({
       latitude: coords.latitude,
@@ -212,9 +139,9 @@ const CommonPlacesScreen = () => {
 
   return (
     <CustomSafeAreaView style={styles.container}>
-      <MapTopOverlay />
+      <ChatInput />
       <Map ref={mapRef} onMapReady={onMapReady} markers={markers} />
-      <UserAvatars
+      <UserList
         animateToRegion={animateToRegion}
         showMessageList={showMessageList}
       />

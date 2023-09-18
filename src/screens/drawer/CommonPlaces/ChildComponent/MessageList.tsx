@@ -1,11 +1,10 @@
-import {View, Text, FlatList, StyleSheet, Dimensions} from 'react-native';
-import React, {forwardRef, useEffect, useState} from 'react';
+import {View, FlatList, StyleSheet, Dimensions} from 'react-native';
+import React, {forwardRef, memo, useEffect, useState} from 'react';
 import ActionSheet, {ActionSheetRef} from 'react-native-actions-sheet';
 import colors from 'theme/colors';
 import {fontSize} from 'theme/fonts';
 import CText from 'components/CText';
-import {useAppDispatch, useAppSelector} from 'app/hooks';
-import firestore from '@react-native-firebase/firestore';
+import {useAppSelector} from 'app/hooks';
 import {Message} from 'feature/message/messageSlice';
 
 type PlaceDetail = {
@@ -23,6 +22,7 @@ const MessageList = forwardRef<ActionSheetRef, MessageListProps>(
     const [placeDetail, setPlaceDetail] = useState<PlaceDetail[]>([]);
     const authUser = useAppSelector(state => state.auth.user);
     const userPositionData = useAppSelector(state => state.places.userPosition);
+    // console.log('message list rendered');
 
     useEffect(() => {
       if (userPositionData) {
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MessageList;
+export default memo(MessageList);

@@ -1,23 +1,21 @@
-import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, TouchableOpacity, Alert} from 'react-native';
+import React, {memo, useEffect, useState} from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
-import {UserPlace} from '../CommonPlacesScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PubNubHelper from 'helpers/PubNubHelper';
 import colors from 'theme/colors';
 import {fontFamily} from 'theme/fonts';
-import firestore from '@react-native-firebase/firestore';
 import {Message, addMessage} from 'feature/message/messageSlice';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
-import {AUTHOR, ITC} from 'config/constants/app_constants';
+import {ITC} from 'config/constants/app_constants';
 
 type ChannelType = {
   label: string;
   value: string;
 };
 
-const MapTopOverlay = () => {
+const ChatInput = () => {
   const [userChannels, setUserChannels] = useState<ChannelType[]>([]);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -25,6 +23,7 @@ const MapTopOverlay = () => {
   const authUserUid = useAppSelector(state => state.auth.user?.uid);
   const userPositionData = useAppSelector(state => state.places.userPosition);
   const dispatch = useAppDispatch();
+  // console.log('chat input rendered');
 
   useEffect(() => {
     if (userPositionData) {
@@ -65,6 +64,7 @@ const MapTopOverlay = () => {
     } catch (error) {
       console.log(error);
     }
+    setMessageText('');
   };
 
   return (
@@ -83,7 +83,7 @@ const MapTopOverlay = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.dropdownContainer}>
+      <View style={styles.dropdownContainerView}>
         <DropDownPicker
           searchable={false}
           open={open}
@@ -96,7 +96,7 @@ const MapTopOverlay = () => {
           placeholder="Select Channel"
           style={styles.dropdown}
           searchPlaceholder={'Enter Parent Name'}
-          dropDownContainerStyle={{width: 150}}
+          dropDownContainerStyle={styles.dropdownContainer}
         />
       </View>
     </View>
@@ -141,13 +141,14 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: '#ECF0F1',
   },
-  dropdownContainer: {width: '90%', alignSelf: 'center'},
+  dropdownContainerView: {width: '90%', alignSelf: 'center'},
   dropdown: {
     borderColor: 'rgba(0,0,0,0.5)',
     borderRadius: 25,
     alignSelf: 'flex-start',
     width: 150,
   },
+  dropdownContainer: {width: 150},
 });
 
-export default MapTopOverlay;
+export default memo(ChatInput);

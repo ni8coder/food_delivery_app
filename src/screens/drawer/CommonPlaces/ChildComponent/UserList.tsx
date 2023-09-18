@@ -1,9 +1,9 @@
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import React from 'react';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {memo} from 'react';
 import CText from 'components/CText';
 import colors from 'theme/colors';
 import {fontFamily} from 'theme/fonts';
-import {LatLng, MapMarkerProps} from 'react-native-maps';
+import {LatLng} from 'react-native-maps';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useAppSelector} from 'app/hooks';
 
@@ -12,10 +12,10 @@ type UserAvatarsType = {
   showMessageList: (userId: string) => void;
 };
 
-const UserAvatars = (props: UserAvatarsType) => {
+const UserList = (props: UserAvatarsType) => {
   const userPositionData = useAppSelector(state => state.places.userPosition);
   const messages = useAppSelector(state => state.messages.messages);
-
+  // console.log('user list rendered');
   const getUnreadCount = (userId: string) => {
     const channel = messages[userId];
 
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserAvatars;
+export default memo(UserList);
