@@ -39,6 +39,7 @@ class PubNubHelper {
 
   removeListener = (handleMessage: (event: MessageEvent) => void) => {
     this.pubnub.removeListener({message: handleMessage});
+    console.log('handleMessage listeners removed.');
   };
 }
 

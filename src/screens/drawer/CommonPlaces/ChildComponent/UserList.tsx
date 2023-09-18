@@ -3,12 +3,12 @@ import React, {memo} from 'react';
 import CText from 'components/CText';
 import colors from 'theme/colors';
 import {fontFamily} from 'theme/fonts';
-import {LatLng} from 'react-native-maps';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useAppSelector} from 'app/hooks';
+import {ITC} from 'config/constants/app_constants';
 
 type UserAvatarsType = {
-  animateToRegion: (coords: LatLng) => void;
+  animateToRegion: (userId: string) => void;
   showMessageList: (userId: string) => void;
 };
 
@@ -29,19 +29,16 @@ const UserList = (props: UserAvatarsType) => {
             const unreadCount = getUnreadCount(user.userId);
             return (
               <View style={styles.innerContainer} key={idx.toString()}>
-                <TouchableOpacity
-                  onPress={() =>
-                    props.animateToRegion({
-                      latitude: user.currentLatitude,
-                      longitude: user.currentLongitude,
-                    })
-                  }>
-                  <FontAwesome5
-                    name={'map-marker-alt'}
-                    size={30}
-                    color={user.userColor}
-                  />
-                </TouchableOpacity>
+                {user.userId !== ITC ? (
+                  <TouchableOpacity
+                    onPress={() => props.animateToRegion(user.userId)}>
+                    <FontAwesome5
+                      name={'map-marker-alt'}
+                      size={30}
+                      color={user.userColor}
+                    />
+                  </TouchableOpacity>
+                ) : null}
                 <TouchableOpacity
                   style={styles.avatarBtn}
                   onPress={() => props.showMessageList(user.userId)}>
@@ -71,7 +68,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     gap: 10,
   },

@@ -23,12 +23,17 @@ import MessageList from './ChildComponent/MessageList';
 import {UserPosition, setUserPosition} from 'feature/places/placesSlice';
 import {useUpdateLocation} from 'hooks/useUpdateLocation';
 
+type UserLatLng = {
+  [userId: string]: LatLng;
+};
+
 const placesRef = firestore().collection('UsersPosition');
 
 const CommonPlacesScreen = () => {
   const actionSheetRef = useRef<ActionSheetRef>(null);
   // const [userData, setUserData] =
   const [markers, setMarkers] = useState<MapMarkerProps[]>([]);
+  const [userCoordinate, setUserCoordinate] = useState<UserLatLng>({});
   const [isMapReady, setIsMapReady] = useState(false);
   const [messageList, setMessageList] = useState<Message[]>([]);
   const mapRef = useRef<MapViewHandle>(null);
@@ -37,13 +42,14 @@ const CommonPlacesScreen = () => {
   const dispatch = useAppDispatch();
   const messages = useAppSelector(state => state.messages.messages);
   // console.log('All Messages', messages);
+  console.log('userCoordinate', userCoordinate);
 
   useUpdateLocation();
 
   const handleMessage = useCallback(
     (event: MessageEvent) => {
       const message = event.message;
-      // console.log('Received Message', event);
+      console.log('Received Message:', message);
       if (typeof message === 'string' || message.hasOwnProperty('text')) {
         const text = message.text || message;
         const data: Message = {
@@ -77,7 +83,6 @@ const CommonPlacesScreen = () => {
     console.log('all listeners added');
 
     return () => {
-      console.log('all listeners removed');
       PubNubHelper.removeListener(handleMessage);
       PubNubHelper.unsubscribeAll();
     };
@@ -102,14 +107,20 @@ const CommonPlacesScreen = () => {
   useEffect(() => {
     const subscriber = placesRef.onSnapshot(querySnapshot => {
       // console.log('Realtime Places data: ', querySnapshot.docs);
+      console.log('Realtime Places data fetched');
       let markersData: MapMarkerProps[] = [];
+      let userCoord: UserLatLng = {};
       querySnapshot.docs.forEach(doc => {
         const data = doc.data() as UserPosition;
+        const coordinate = {
+          latitude: data.currentLatitude,
+          longitude: data.currentLongitude,
+        };
+
+        userCoord[data.userId] = coordinate;
+
         markersData.push({
-          coordinate: {
-            latitude: data.currentLatitude,
-            longitude: data.currentLongitude,
-          },
+          coordinate: coordinate,
           title: data.author,
           description: `User Speed is ${data.speed}`,
           pinColor: data.userColor,
@@ -117,20 +128,27 @@ const CommonPlacesScreen = () => {
       });
       // console.log('jsonData', jsonData);
       setMarkers(markersData);
+      setUserCoordinate(userCoord);
     });
 
     // Stop listening for updates when no longer required
     return () => subscriber();
   }, []);
 
-  const animateToRegion = useCallback((coords: LatLng) => {
-    mapRef.current?.animateToRegion({
-      latitude: coords.latitude,
-      longitude: coords.longitude,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
-    });
-  }, []);
+  const animateToRegion = useCallback(
+    (userId: string) => {
+      if (!userCoordinate[userId]) {
+        return;
+      }
+      mapRef.current?.animateToRegion({
+        latitude: userCoordinate[userId].latitude,
+        longitude: userCoordinate[userId].longitude,
+        latitudeDelta: 0.015,
+        longitudeDelta: 0.0121,
+      });
+    },
+    [userCoordinate],
+  );
 
   //sets map ready value
   const onMapReady = useCallback(() => {
