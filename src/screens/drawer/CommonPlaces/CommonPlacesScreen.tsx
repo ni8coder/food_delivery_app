@@ -3,11 +3,8 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Map, {MapViewHandle} from 'controls/Map';
 import CustomSafeAreaView from 'components/CustomSafeAreaView';
 import firestore from '@react-native-firebase/firestore';
-import {AUTHOR, ITC, ITC_DATA} from 'config/constants/app_constants';
+import {ITC, ITC_DATA} from 'config/constants/app_constants';
 import {useAppDispatch, useAppSelector} from 'app/hooks';
-import {GeoError, GeoPosition} from 'react-native-geolocation-service';
-import LocationHelper from 'helpers/LocationHelper';
-import {RESULTS} from 'react-native-permissions';
 import {LatLng, MapMarkerProps} from 'react-native-maps';
 import {ActionSheetRef} from 'react-native-actions-sheet';
 import PubNubHelper from 'helpers/PubNubHelper';
@@ -76,11 +73,11 @@ const CommonPlacesScreen = () => {
     [dispatch, messages],
   );
 
-  //subscribe to channels
+  //subscribe to channelss
   useEffect(() => {
     PubNubHelper.subscribe({channels});
     PubNubHelper.addListener(handleMessage);
-    console.log('all listeners added');
+    console.log('all listeners added.');
 
     return () => {
       PubNubHelper.removeListener(handleMessage);
@@ -126,7 +123,7 @@ const CommonPlacesScreen = () => {
           pinColor: data.userColor,
         });
       });
-      // console.log('jsonData', jsonData);
+      // console.log('jsonData', jsonData)
       setMarkers(markersData);
       setUserCoordinate(userCoord);
     });

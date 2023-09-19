@@ -12,7 +12,7 @@
     "ios:production": "ENVFILE=.env.production react-native run-ios --simulator='iPhone 14'",
     "android:staging": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=stagingDebug --appIdSuffix 'staging'",
     "android:staging-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=stagingRelease --appIdSuffix 'staging'",
-    "android:dev": "npx react-native run-android --variant=developmentDebug --appIdSuffix 'development'",
+    "android:dev": "npx react-native run-android --active-arch-only --variant=developmentDebug --appIdSuffix 'development'",
     "android:dev-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=developmentRelease --appIdSuffix 'development'",
     "android:prod": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=productionDebug --appIdSuffix ''",
     "android:prod-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=productionRelease --appIdSuffix ''"
